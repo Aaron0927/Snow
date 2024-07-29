@@ -7,4 +7,6 @@ target 'Snow' do
 
   # Pods for Snow
   pod 'SnapKit'
+  pod 'Kingfisher', '~> 7.0'
+  pod 'lottie-ios'
 end
