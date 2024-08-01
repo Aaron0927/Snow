@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     // 获取导航栏高度
-    func getSafeAreaNavBarHeight() -> CGFloat {
+    func getNavBarAndStatusBarHeight() -> CGFloat {
         // 获取整个导航栏高度（状态栏高度 + 导航栏高度）
         let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 0
         let statusBarHeight = getStatusBarHeight()
@@ -22,6 +22,12 @@ extension UIViewController {
         let safeAreaNavBarHeight = totalNavBarHeight - safeAreaTopInset
         
         return safeAreaNavBarHeight
+    }
+    
+    // 获取导航栏高度
+    func getNavigationBarHeight() -> CGFloat {
+        let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 0
+        return navigationBarHeight
     }
     
     // 获取状态栏高度

@@ -25,7 +25,7 @@ class BaseViewController: UIViewController {
     
     // 添加自定义导航栏背景
     func addNavBar(_ color: UIColor) {
-        let size = CGSize(width: view.bounds.width, height: getSafeAreaNavBarHeight())
+        let size = CGSize(width: view.bounds.width, height: getNavBarAndStatusBarHeight())
         let navImageView = UIImageView(image: UIImage(size: size, color: color))
         view.addSubview(navImageView)
     }
