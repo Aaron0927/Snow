@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeNavigationBar" customModule="Snow" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="426" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="测试" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="VDb-ZJ-64D" customClass="CustomTextField" customModule="Snow" customModuleProvider="target">
+                    <rect key="frame" x="12" y="2" width="270" height="40"/>
+                    <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="BEe-bc-6vc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="roZ-YJ-DRF">
+                    <rect key="frame" x="302" y="10" width="112" height="24"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfG-wp-abc">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="UXp-hg-9AQ"/>
+                                <constraint firstAttribute="height" constant="24" id="t4g-yI-Ldq"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="icon_nav_post"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22A-vm-VSf">
+                            <rect key="frame" x="44" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="tna-o8-ubP"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="icon_navbar_message"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuZ-GW-mNL">
+                            <rect key="frame" x="88" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="etY-TY-8p1"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="xiaoxue_default"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="roZ-YJ-DRF" secondAttribute="trailing" constant="12" id="2sZ-tE-3Vq"/>
+                <constraint firstItem="VDb-ZJ-64D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="B8s-oe-nQI"/>
+                <constraint firstItem="roZ-YJ-DRF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="GmJ-RE-zYr"/>
+                <constraint firstItem="VDb-ZJ-64D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="KAa-OA-pQH"/>
+                <constraint firstItem="roZ-YJ-DRF" firstAttribute="leading" secondItem="VDb-ZJ-64D" secondAttribute="trailing" constant="20" id="oai-a2-q9b"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="textField" destination="VDb-ZJ-64D" id="vJD-65-ckv"/>
+            </connections>
+            <point key="canvasLocation" x="155.72519083969465" y="-235.91549295774649"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_nav_post" width="24" height="24"/>
+        <image name="icon_navbar_message" width="24" height="24"/>
+        <image name="xiaoxue_default" width="42" height="42"/>
+        <systemColor name="quaternarySystemFillColor">
+            <color red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
