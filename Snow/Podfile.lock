@@ -1,24 +1,60 @@
 PODS:
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - Kingfisher (7.12.0)
   - lottie-ios (4.5.0)
+  - RxCocoa (6.7.1):
+    - RxRelay (= 6.7.1)
+    - RxSwift (= 6.7.1)
+  - RxRelay (6.7.1):
+    - RxSwift (= 6.7.1)
+  - RxSwift (6.7.1)
   - SnapKit (5.7.1)
+  - SwiftAlgorithms (1.0.0)
+  - TGCoreKit (0.0.1)
 
 DEPENDENCIES:
+  - Charts
   - Kingfisher (~> 7.0)
   - lottie-ios
+  - RxCocoa
+  - RxSwift
   - SnapKit
+  - TGCoreKit (from `https://github.com/Aaron0927/TGCoreKit.git`)
 
 SPEC REPOS:
   trunk:
+    - Charts
     - Kingfisher
     - lottie-ios
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SnapKit
+    - SwiftAlgorithms
+
+EXTERNAL SOURCES:
+  TGCoreKit:
+    :git: https://github.com/Aaron0927/TGCoreKit.git
+
+CHECKOUT OPTIONS:
+  TGCoreKit:
+    :commit: 7e3737d3ac61f7bae643cd628bcd7d95ce2fd897
+    :git: https://github.com/Aaron0927/TGCoreKit.git
 
 SPEC CHECKSUMS:
+  Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
   Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
   lottie-ios: a881093fab623c467d3bce374367755c272bdd59
+  RxCocoa: f5609cb4637587a7faa99c5d5787e3ad582b75a4
+  RxRelay: 4151ba01152436b08271e08410135e099880eae5
+  RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
+  TGCoreKit: 435db3123d1c5e7fa12b4bab04922e33fb56a061
 
-PODFILE CHECKSUM: 4bde5c52266d79ea580570efbc5d19ce343debde
+PODFILE CHECKSUM: 42837043c4e4fcc15fc3c70f8addd91e84c8f4bc
 
 COCOAPODS: 1.11.3
