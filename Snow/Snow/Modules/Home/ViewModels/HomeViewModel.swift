@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class HomeViewModel {
     
@@ -16,7 +17,6 @@ class HomeViewModel {
     }
 
     func requestData() {
-        return
         var params: [String: Any] = [:]
         params["category"] = 200
         params["count"] = 8
@@ -28,11 +28,11 @@ class HomeViewModel {
         params["req_seq"] = 1
         params["require_advert"] = false
         params["required_status"] = true
-        params["since_id"] = 1721981388635
-        params["_"] = 1721981493939
+        params["since_id"] = 1721981388635 // 上一次请求时间，可以为空，为空的情况下，接口会返回当前时间戳，记录下来下次请求使用
+        params["_"] = 1721981493939 // 这一次请求时间
         params["x"] = 0.862
         params["_s"] = "46075c"
-        params["_t"] = "1C37A909-9E3E-491E-9DF9-29DEA6CFEB9C.4993337198.1721981350099.1721981387700"
+        params["_t"] = "\(UUID().uuidString).4993337198.1721981350099.1721981387700"
         NetworkTool.shareInstance.get(homeFlowPath, params: params) { res in
             do {
                 let model = try JSONDecoder().decode(HomeFlowModel.self, from: res)
@@ -44,7 +44,7 @@ class HomeViewModel {
                     if let post = $0.post {
                         vm.name.value = post.user.screen_name
                         vm.image.value = post.user.photo_domain + post.user.profile_image_url.split(separator: ",").last!
-                        let content = try? NSAttributedString(
+                        let content = try? NSMutableAttributedString(
                             data: post.topic_desc.data(using: .utf8)!,
                             options: [
                                 .documentType: NSAttributedString.DocumentType.html,
@@ -52,6 +52,12 @@ class HomeViewModel {
                             ],
                             documentAttributes: nil
                         )
+                        let para = NSMutableParagraphStyle()
+                        para.lineSpacing = 5
+                        content?.addAttributes([
+                            .font: UIFont.systemFont(ofSize: 15),
+                            .paragraphStyle: para
+                        ], range: NSRange(location: 0, length: content!.length))
                         vm.content.value = content
                         vm.focus.value = post.user.following
                     }

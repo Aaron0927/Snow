@@ -30,7 +30,7 @@ class BaseTabBarController: UITabBarController {
                 item.image = image.withRenderingMode(.alwaysOriginal)
             }
             if let selectedImage = item.selectedImage {
-                item.selectedImage = selectedImage.withRenderingMode(.automatic)
+                item.selectedImage = selectedImage.withRenderingMode(.alwaysOriginal)
             }
         }
     }

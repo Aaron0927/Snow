@@ -63,7 +63,7 @@
         <scene sceneID="8QI-ge-fdf">
             <objects>
                 <viewControllerPlaceholder storyboardName="Mine" id="SdG-lh-oi7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="icon_tabbar_me_day" id="UfF-39-Nxm"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="icon_tabbar_me_day" selectedImage="icon_tabbar_me_day" id="UfF-39-Nxm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r78-Gd-w51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

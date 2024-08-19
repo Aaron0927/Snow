@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="测试" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="VDb-ZJ-64D" customClass="CustomTextField" customModule="Snow" customModuleProvider="target">
-                    <rect key="frame" x="12" y="2" width="270" height="40"/>
+                    <rect key="frame" x="12" y="7" width="270" height="30"/>
                     <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="BEe-bc-6vc"/>
+                        <constraint firstAttribute="height" constant="30" id="BEe-bc-6vc"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
