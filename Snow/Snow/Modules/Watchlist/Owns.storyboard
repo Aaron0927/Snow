@@ -16,6 +16,17 @@
                     <view key="view" contentMode="scaleToFill" id="jMl-ic-9Gk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bov-bs-Vdd">
+                                <rect key="frame" x="150" y="418" width="94" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="查看行情"/>
+                                <connections>
+                                    <segue destination="blO-Y5-COa" kind="show" id="fT1-PS-vdz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nog-cV-qVo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -24,6 +35,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QYx-Ui-X1c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2043.5114503816792" y="-129.57746478873241"/>
+        </scene>
+        <!--Individual Controller-->
+        <scene sceneID="pnb-QP-8mQ">
+            <objects>
+                <viewController id="blO-Y5-COa" customClass="IndividualController" customModule="Snow" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wtb-NJ-xef">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Urg-h5-xpE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6fK-YE-9jN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YVd-Sg-MAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2831" y="-130"/>
         </scene>
         <!--自选-->
         <scene sceneID="CqG-aS-DPo">
