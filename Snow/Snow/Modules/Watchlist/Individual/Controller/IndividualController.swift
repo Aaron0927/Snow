@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import TGCoreKit
 
 // 个股页面控制器
 class IndividualController: BaseViewController {
@@ -54,7 +55,7 @@ extension IndividualController {
         }
         
         let dataSet = CandleChartDataSet(entries: candleDataEntries, label: "K线图")
-        dataSet.colors = candles.map { $0.close >= $0.open ? .green : .red }
+        dataSet.colors = candles.map { $0.close >= $0.open ? .red : .green }
         dataSet.drawValuesEnabled = false // 隐藏数据值
         
         let data = CandleChartData(dataSet: dataSet)
@@ -63,7 +64,7 @@ extension IndividualController {
         setupChartView(candles: candles)
         
         // 配置图表可滑动（必须设置在获取数据之后）
-        let visibleXRange: Double = 30
+        let visibleXRange: Double = 50
         candleChartView.setVisibleXRangeMaximum(visibleXRange)
         // 如果数据不足30条，设置最小可见范围
         if candleDataEntries.count < Int(visibleXRange) {
@@ -84,8 +85,8 @@ extension IndividualController {
         // 禁止自动适应内容大小
         candleChartView.fitScreen()
         
-        // 设置柱子宽度，保持固定宽度
-        dataSet.barSpace = 0.25 // 调整柱子的宽度，确保宽度适合显示30条数据
+        // 每个柱子是平分宽度的，设置 barSpace是柱子两边的间隔
+        dataSet.barSpace = 0.2 // 调整柱子的宽度，确保宽度适合显示30条数据
         
         candleChartView.notifyDataSetChanged()
         
@@ -98,9 +99,8 @@ extension IndividualController {
     private func setupChartView(candles: [StockData]) {
         // 自定义 x 轴
         let xAxis = candleChartView.xAxis
-        xAxis.labelPosition = .bottom
         xAxis.valueFormatter = DateValueFormatter(dates: candles.map { $0.date })
-        xAxis.granularity = 1
+        xAxis.granularity = 50.0 / 3.0
         xAxis.granularityEnabled = true
     }
     
@@ -118,18 +118,30 @@ extension IndividualController {
         candleChartView.xAxis.labelCount = 3 // 设置显示的标签数量
         candleChartView.xAxis.drawGridLinesEnabled = false // 显示分割线
         candleChartView.xAxis.gridLineWidth = 0.5
-        candleChartView.xAxis.gridColor = .red
+        candleChartView.xAxis.gridColor = UIColor(hex: "#00000012")
         candleChartView.xAxis.granularity = 1.0 // 间隔
+        candleChartView.xAxis.drawAxisLineEnabled = true // 绘制外围的坐标线
+        candleChartView.xAxis.labelPosition = .bothSided
         
         
-        // y 轴设置
-        candleChartView.rightAxis.enabled = false // 禁用右侧 Y 轴
+        // 左边 y 轴设置
+        candleChartView.leftAxis.drawLabelsEnabled = true // 启用 Y 轴标签
         candleChartView.leftAxis.labelCount = 3
         candleChartView.leftAxis.enabled = true
-        candleChartView.leftAxis.labelPosition = .insideChart // 文字显示在 y 轴内测
-        candleChartView.leftAxis.drawGridLinesEnabled = true // 显示分割线
+        candleChartView.leftAxis.labelPosition = .outsideChart // 文字显示在 y 轴内测
+        candleChartView.leftAxis.drawGridLinesEnabled = false // 显示分割线
         candleChartView.leftAxis.gridLineWidth = 0.5
-        candleChartView.leftAxis.gridColor = .red
+        candleChartView.leftAxis.gridColor = UIColor(hex: "#00000012")
+        candleChartView.leftAxis.drawAxisLineEnabled = true // 绘制外围的坐标线
+        
+        // 右边 y 轴设置
+        candleChartView.rightAxis.enabled = true
+        candleChartView.rightAxis.labelCount = 3
+        candleChartView.rightAxis.drawLabelsEnabled = false
+        candleChartView.rightAxis.drawGridLinesEnabled = false
+        candleChartView.rightAxis.gridLineWidth = 0.5
+        candleChartView.rightAxis.gridColor = UIColor(hex: "#00000012")
+        candleChartView.rightAxis.drawAxisLineEnabled = true // 绘制外围的坐标线
     }
 }
 
