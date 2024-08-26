@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1D33A52C7C326F00E248AA /* TestBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D33A42C7C326F00E248AA /* TestBViewController.swift */; };
+		3B1D33A92C7C51F700E248AA /* TGPageContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D33A82C7C51F700E248AA /* TGPageContentController.swift */; };
+		3B1D33AB2C7C52C500E248AA /* TestCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D33AA2C7C52C500E248AA /* TestCViewController.swift */; };
+		3B1D33AD2C7C6E2300E248AA /* TestDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D33AC2C7C6E2300E248AA /* TestDViewController.swift */; };
+		3B1D33AF2C7C711A00E248AA /* TGPageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D33AE2C7C711A00E248AA /* TGPageProtocol.swift */; };
 		3B24D5EF2C5B708B00CB3008 /* DIN-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5EC2C5B708B00CB3008 /* DIN-Medium.otf */; };
 		3B24D5F02C5B708B00CB3008 /* DIN-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5ED2C5B708B00CB3008 /* DIN-Bold.otf */; };
 		3B24D5F12C5B708B00CB3008 /* DIN-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5EE2C5B708B00CB3008 /* DIN-Regular.otf */; };
@@ -22,6 +27,11 @@
 		3B7B45B72C7C1A5D0053A4B6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */; };
 		3B7B45C12C7C1AB60053A4B6 /* TGCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7B45BE2C7C1AA70053A4B6 /* TGCoreKit.framework */; };
 		3B7B45C22C7C1AB60053A4B6 /* TGCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7B45BE2C7C1AA70053A4B6 /* TGCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45C62C7C1B7F0053A4B6 /* SnowHeader.swift */; };
+		3B7B45CA2C7C1C8B0053A4B6 /* TGPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45C92C7C1C8B0053A4B6 /* TGPageController.swift */; };
+		3B7B45CE2C7C1EF40053A4B6 /* IndividualContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */; };
+		3B7B45D02C7C20E40053A4B6 /* TestAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45CF2C7C20E40053A4B6 /* TestAViewController.swift */; };
+		3B7B45D22C7C25850053A4B6 /* NestScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45D12C7C25850053A4B6 /* NestScrollView.swift */; };
 		3B8231C72C51DBBC00425B7D /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8231C62C51DBBC00425B7D /* HomeTableViewCell.swift */; };
 		3B98BDC42C58F20C000DF638 /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */; };
 		3B98BDDB2C5A2F42000DF638 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B98BDDA2C5A2F42000DF638 /* UIColor+Extension.swift */; };
@@ -87,6 +97,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B1D33A42C7C326F00E248AA /* TestBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBViewController.swift; sourceTree = "<group>"; };
+		3B1D33A82C7C51F700E248AA /* TGPageContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageContentController.swift; sourceTree = "<group>"; };
+		3B1D33AA2C7C52C500E248AA /* TestCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCViewController.swift; sourceTree = "<group>"; };
+		3B1D33AC2C7C6E2300E248AA /* TestDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDViewController.swift; sourceTree = "<group>"; };
+		3B1D33AE2C7C711A00E248AA /* TGPageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageProtocol.swift; sourceTree = "<group>"; };
 		3B24D5EC2C5B708B00CB3008 /* DIN-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Medium.otf"; sourceTree = "<group>"; };
 		3B24D5ED2C5B708B00CB3008 /* DIN-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Bold.otf"; sourceTree = "<group>"; };
 		3B24D5EE2C5B708B00CB3008 /* DIN-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Regular.otf"; sourceTree = "<group>"; };
@@ -101,6 +116,11 @@
 		3B2FCB0F2C731AD400928702 /* StockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockData.swift; sourceTree = "<group>"; };
 		3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3B7B45B82C7C1AA70053A4B6 /* TGCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TGCoreKit.xcodeproj; path = ../../../TGCoreKit/TGCoreKit.xcodeproj; sourceTree = "<group>"; };
+		3B7B45C62C7C1B7F0053A4B6 /* SnowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowHeader.swift; sourceTree = "<group>"; };
+		3B7B45C92C7C1C8B0053A4B6 /* TGPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageController.swift; sourceTree = "<group>"; };
+		3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualContainerController.swift; sourceTree = "<group>"; };
+		3B7B45CF2C7C20E40053A4B6 /* TestAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAViewController.swift; sourceTree = "<group>"; };
+		3B7B45D12C7C25850053A4B6 /* NestScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestScrollView.swift; sourceTree = "<group>"; };
 		3B8231C62C51DBBC00425B7D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
 		3B98BDDA2C5A2F42000DF638 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -180,6 +200,7 @@
 		3B2BACC72C72F5C900CCA3F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */,
 				3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */,
 			);
 			path = Controller;
@@ -215,6 +236,14 @@
 			isa = PBXGroup;
 			children = (
 				3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */,
+				3B7B45C92C7C1C8B0053A4B6 /* TGPageController.swift */,
+				3B1D33A82C7C51F700E248AA /* TGPageContentController.swift */,
+				3B7B45CF2C7C20E40053A4B6 /* TestAViewController.swift */,
+				3B1D33A42C7C326F00E248AA /* TestBViewController.swift */,
+				3B1D33AA2C7C52C500E248AA /* TestCViewController.swift */,
+				3B7B45D12C7C25850053A4B6 /* NestScrollView.swift */,
+				3B1D33AC2C7C6E2300E248AA /* TestDViewController.swift */,
+				3B1D33AE2C7C711A00E248AA /* TGPageProtocol.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -300,6 +329,7 @@
 				3BB5803D2C46017500378F66 /* Assets.xcassets */,
 				3BB5803F2C46017500378F66 /* LaunchScreen.storyboard */,
 				3BB580422C46017500378F66 /* Info.plist */,
+				3B7B45C62C7C1B7F0053A4B6 /* SnowHeader.swift */,
 			);
 			path = Snow;
 			sourceTree = "<group>";
@@ -582,25 +612,35 @@
 				3B24D5F62C5B794400CB3008 /* HomeNavigationBar.swift in Sources */,
 				3B98BDDB2C5A2F42000DF638 /* UIColor+Extension.swift in Sources */,
 				3BACDC672C522F1500D2C43D /* Observable.swift in Sources */,
+				3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */,
 				3BB583452C464D7500378F66 /* BaseTabBarController.swift in Sources */,
 				3BB5812A2C4610DC00378F66 /* BaseViewController.swift in Sources */,
 				3B2FCB102C731AD400928702 /* StockData.swift in Sources */,
 				3BACDC592C51FDCB00D2C43D /* NetworkTool.swift in Sources */,
+				3B1D33AB2C7C52C500E248AA /* TestCViewController.swift in Sources */,
 				3B98BDC42C58F20C000DF638 /* UITabBar+Extension.swift in Sources */,
+				3B7B45CA2C7C1C8B0053A4B6 /* TGPageController.swift in Sources */,
+				3B1D33A52C7C326F00E248AA /* TestBViewController.swift in Sources */,
+				3B1D33A92C7C51F700E248AA /* TGPageContentController.swift in Sources */,
 				3B8231C72C51DBBC00425B7D /* HomeTableViewCell.swift in Sources */,
 				3BB5866D2C4679C600378F66 /* UIViewController+Extensions.swift in Sources */,
 				3BACDC692C52302C00D2C43D /* HomeCellViewModel.swift in Sources */,
 				3B2BACCD2C72F67B00CCA3F2 /* IndividualViewModel.swift in Sources */,
 				3B2BACCA2C72F61400CCA3F2 /* IndividualController.swift in Sources */,
+				3B7B45D22C7C25850053A4B6 /* NestScrollView.swift in Sources */,
 				3B24D5FA2C5B821400CB3008 /* Common.swift in Sources */,
 				3BACDC5E2C521D8400D2C43D /* HomeService.swift in Sources */,
 				3BB581282C460FFF00378F66 /* BaseNavigationController.swift in Sources */,
 				3BB580352C46017200378F66 /* AppDelegate.swift in Sources */,
+				3B1D33AD2C7C6E2300E248AA /* TestDViewController.swift in Sources */,
 				3BACDC602C5224EE00D2C43D /* HomeFlowModel.swift in Sources */,
+				3B1D33AF2C7C711A00E248AA /* TGPageProtocol.swift in Sources */,
+				3B7B45D02C7C20E40053A4B6 /* TestAViewController.swift in Sources */,
 				3BB580372C46017200378F66 /* SceneDelegate.swift in Sources */,
 				3B7B45B72C7C1A5D0053A4B6 /* CustomTextField.swift in Sources */,
 				3BB5866B2C466D9E00378F66 /* UIImage+Extensions.swift in Sources */,
 				3BB581252C460FCA00378F66 /* HomeViewController.swift in Sources */,
+				3B7B45CE2C7C1EF40053A4B6 /* IndividualContainerController.swift in Sources */,
 				3BACDC5B2C521D4700D2C43D /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

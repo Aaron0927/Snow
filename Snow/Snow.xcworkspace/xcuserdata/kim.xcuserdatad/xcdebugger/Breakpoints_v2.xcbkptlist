@@ -3,4 +3,54 @@
    uuid = "912D2A79-58BB-49AB-ACEC-853D97541AC2"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "351BB4A2-2677-457C-A5F0-76DFC8C285F5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Snow/Modules/Main/TGPageController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "351BB4A2-2677-457C-A5F0-76DFC8C285F5 - 816d71dced4083f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIScrollView&gt;) -&gt; () in closure #1 (Snow.TGPageContentController) -&gt; () in Snow.TGPageController.viewDidLoad() -&gt; ()"
+                  moduleName = "Snow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kim/Documents/Person/SnowProject/Snow/Snow/Snow/Modules/Main/TGPageController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "351BB4A2-2677-457C-A5F0-76DFC8C285F5 - 816d71dced4083f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIScrollView&gt;) -&gt; () in closure #1 (Snow.TGPageContentController) -&gt; () in Snow.TGPageController.viewDidLoad() -&gt; ()"
+                  moduleName = "Snow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kim/Documents/Person/SnowProject/Snow/Snow/Snow/Modules/Main/TGPageController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

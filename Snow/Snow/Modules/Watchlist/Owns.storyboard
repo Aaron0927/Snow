@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Individual Container Controller-->
         <scene sceneID="zqv-m0-sUG">
             <objects>
-                <viewController id="k7I-I4-P0U" sceneMemberID="viewController">
+                <viewController id="k7I-I4-P0U" customClass="IndividualContainerController" customModule="Snow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jMl-ic-9Gk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +24,15 @@
                                 <buttonConfiguration key="configuration" style="plain" title="查看行情"/>
                                 <connections>
                                     <segue destination="blO-Y5-COa" kind="show" id="fT1-PS-vdz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYa-Qy-iYM">
+                                <rect key="frame" x="167" y="202" width="59" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="测试"/>
+                                <connections>
+                                    <action selector="testAction:" destination="k7I-I4-P0U" eventType="touchUpInside" id="GO5-jt-qfB"/>
                                 </connections>
                             </button>
                         </subviews>

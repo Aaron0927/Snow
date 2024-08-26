@@ -5,7 +5,6 @@ target 'Snow' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'TGCoreKit', :git => 'https://github.com/Aaron0927/TGCoreKit.git'
   # Pods for Snow
   pod 'SnapKit'
   pod 'Kingfisher', '~> 7.0'

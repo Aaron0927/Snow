@@ -13,7 +13,6 @@ PODS:
   - RxSwift (6.7.1)
   - SnapKit (5.7.1)
   - SwiftAlgorithms (1.0.0)
-  - TGCoreKit (0.0.1)
 
 DEPENDENCIES:
   - Charts
@@ -22,7 +21,6 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - SnapKit
-  - TGCoreKit (from `https://github.com/Aaron0927/TGCoreKit.git`)
 
 SPEC REPOS:
   trunk:
@@ -35,15 +33,6 @@ SPEC REPOS:
     - SnapKit
     - SwiftAlgorithms
 
-EXTERNAL SOURCES:
-  TGCoreKit:
-    :git: https://github.com/Aaron0927/TGCoreKit.git
-
-CHECKOUT OPTIONS:
-  TGCoreKit:
-    :commit: 7e3737d3ac61f7bae643cd628bcd7d95ce2fd897
-    :git: https://github.com/Aaron0927/TGCoreKit.git
-
 SPEC CHECKSUMS:
   Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
   Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
@@ -53,8 +42,7 @@ SPEC CHECKSUMS:
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
-  TGCoreKit: 435db3123d1c5e7fa12b4bab04922e33fb56a061
 
-PODFILE CHECKSUM: 42837043c4e4fcc15fc3c70f8addd91e84c8f4bc
+PODFILE CHECKSUM: b1b7fe1a6f5271ff1e3636dec9a094031b3161a8
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2

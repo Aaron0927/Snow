@@ -13,7 +13,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "返回", image: UIImage(), primaryAction: nil, menu: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "", image: UIImage(), primaryAction: nil, menu: nil)
         navigationItem.backBarButtonItem?.tintColor = .black
         
         // 设置导航栏透明
@@ -22,8 +22,8 @@ class BaseViewController: UIViewController {
         // 设置导航栏阴影为透明色图片
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        // 添加自定义导航栏背景
-        addNavBar(.white)
+//        // 添加自定义导航栏背景
+//        addNavBar(.white)
     }
     
     // 添加自定义导航栏背景
