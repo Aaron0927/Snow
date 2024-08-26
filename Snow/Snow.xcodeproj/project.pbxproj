@@ -10,7 +10,6 @@
 		3B24D5EF2C5B708B00CB3008 /* DIN-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5EC2C5B708B00CB3008 /* DIN-Medium.otf */; };
 		3B24D5F02C5B708B00CB3008 /* DIN-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5ED2C5B708B00CB3008 /* DIN-Bold.otf */; };
 		3B24D5F12C5B708B00CB3008 /* DIN-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5EE2C5B708B00CB3008 /* DIN-Regular.otf */; };
-		3B24D5F42C5B77F700CB3008 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24D5F32C5B77F600CB3008 /* CustomTextField.swift */; };
 		3B24D5F62C5B794400CB3008 /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24D5F52C5B794400CB3008 /* HomeNavigationBar.swift */; };
 		3B24D5F82C5B795300CB3008 /* HomeNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5F72C5B795300CB3008 /* HomeNavigationBar.xib */; };
 		3B24D5FA2C5B821400CB3008 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24D5F92C5B821400CB3008 /* Common.swift */; };
@@ -20,6 +19,7 @@
 		3B2BACCA2C72F61400CCA3F2 /* IndividualController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */; };
 		3B2BACCD2C72F67B00CCA3F2 /* IndividualViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BACCC2C72F67A00CCA3F2 /* IndividualViewModel.swift */; };
 		3B2FCB102C731AD400928702 /* StockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FCB0F2C731AD400928702 /* StockData.swift */; };
+		3B7B45B72C7C1A5D0053A4B6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */; };
 		3B8231C72C51DBBC00425B7D /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8231C62C51DBBC00425B7D /* HomeTableViewCell.swift */; };
 		3B98BDC42C58F20C000DF638 /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */; };
 		3B98BDDB2C5A2F42000DF638 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B98BDDA2C5A2F42000DF638 /* UIColor+Extension.swift */; };
@@ -57,7 +57,6 @@
 		3B24D5EC2C5B708B00CB3008 /* DIN-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Medium.otf"; sourceTree = "<group>"; };
 		3B24D5ED2C5B708B00CB3008 /* DIN-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Bold.otf"; sourceTree = "<group>"; };
 		3B24D5EE2C5B708B00CB3008 /* DIN-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Regular.otf"; sourceTree = "<group>"; };
-		3B24D5F32C5B77F600CB3008 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3B24D5F52C5B794400CB3008 /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
 		3B24D5F72C5B795300CB3008 /* HomeNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeNavigationBar.xib; sourceTree = "<group>"; };
 		3B24D5F92C5B821400CB3008 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualController.swift; sourceTree = "<group>"; };
 		3B2BACCC2C72F67A00CCA3F2 /* IndividualViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualViewModel.swift; sourceTree = "<group>"; };
 		3B2FCB0F2C731AD400928702 /* StockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockData.swift; sourceTree = "<group>"; };
+		3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3B8231C62C51DBBC00425B7D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
 		3B98BDDA2C5A2F42000DF638 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -142,14 +142,6 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		3B24D5F22C5B77E000CB3008 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				3B24D5F32C5B77F600CB3008 /* CustomTextField.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		3B2BACC72C72F5C900CCA3F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +174,14 @@
 				3B2FCB0F2C731AD400928702 /* StockData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3B7B45B52C7C1A5D0053A4B6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		3B98BDA82C574410000DF638 /* Resources */ = {
@@ -262,7 +262,7 @@
 		3BB5811B2C460EFE00378F66 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				3B24D5F22C5B77E000CB3008 /* Main */,
+				3B7B45B52C7C1A5D0053A4B6 /* Main */,
 				3BACDC612C52263E00D2C43D /* User */,
 				3BB581262C460FE100378F66 /* Base */,
 				3BB5811F2C460F2C00378F66 /* Mine */,
@@ -514,7 +514,6 @@
 				3B98BDDB2C5A2F42000DF638 /* UIColor+Extension.swift in Sources */,
 				3BACDC672C522F1500D2C43D /* Observable.swift in Sources */,
 				3BB583452C464D7500378F66 /* BaseTabBarController.swift in Sources */,
-				3B24D5F42C5B77F700CB3008 /* CustomTextField.swift in Sources */,
 				3BB5812A2C4610DC00378F66 /* BaseViewController.swift in Sources */,
 				3B2FCB102C731AD400928702 /* StockData.swift in Sources */,
 				3BACDC592C51FDCB00D2C43D /* NetworkTool.swift in Sources */,
@@ -530,6 +529,7 @@
 				3BB580352C46017200378F66 /* AppDelegate.swift in Sources */,
 				3BACDC602C5224EE00D2C43D /* HomeFlowModel.swift in Sources */,
 				3BB580372C46017200378F66 /* SceneDelegate.swift in Sources */,
+				3B7B45B72C7C1A5D0053A4B6 /* CustomTextField.swift in Sources */,
 				3BB5866B2C466D9E00378F66 /* UIImage+Extensions.swift in Sources */,
 				3BB581252C460FCA00378F66 /* HomeViewController.swift in Sources */,
 				3BACDC5B2C521D4700D2C43D /* HomeViewModel.swift in Sources */,
