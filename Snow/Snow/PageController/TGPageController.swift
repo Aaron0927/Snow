@@ -10,17 +10,18 @@ import UIKit
 private let kTopViewH: CGFloat = 300
 private let kCellID: String = "kCellID"
 
-// 子视图应该实现的协议
-protocol TGPageContent where Self: UIViewController {
-    var canScroll: Bool { set get }
-    var scrollView: UIScrollView? { get }
+private class TGNestScrollView: UIScrollView, UIGestureRecognizerDelegate {
+    /// 这是实现手势穿透的关键代码。
+    /// 返回 YES 允许两者同时识别。 默认实现返回 NO（默认情况下不能同时识别两个手势）
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
-
 
 class TGPageController: UIViewController {
     // MARK: - 懒加载属性
-    private lazy var scrollView: NestScrollView = {
-        let scrollView = NestScrollView()
+    private lazy var scrollView: TGNestScrollView = {
+        let scrollView = TGNestScrollView()
         scrollView.backgroundColor = .white
         scrollView.showsVerticalScrollIndicator = false
         scrollView.delegate = self
@@ -56,24 +57,22 @@ class TGPageController: UIViewController {
     }()
     
     // 子控制器
-    private lazy var childControllers: [TGPageContentController] = {
-        var controllers = [TGPageContentController]()
-        controllers.append(TestAViewController())
-        controllers.append(TestBViewController())
-        for _ in 0..<2 {
-            controllers.append(TestCViewController())
-        }
-        return controllers
-    }()
-    
     private lazy var otherControllers: [TGPageContent] = {
         var controllers = [TGPageContent]()
         for _ in 0..<4 {
             let vcd = TestDViewController()
-            vcd.scrollView?.delegate = self
-//            vcd.scrollView?.addObserver(self, forKeyPath: "contentOffset", options: [.new, .old], context: nil)
+            vcd.scrollViewDidScroll = { scrollView in
+                if !vcd.canScroll {
+                    scrollView.contentOffset = .zero
+                } else if (scrollView.contentOffset.y <= 0) {
+                    vcd.canScroll = false
+                    // 父视图可以滚动
+                    self.canScroll = true
+                }
+            }
             controllers.append(vcd)
         }
+        controllers.append(TestEViewController())
         return controllers
     }()
     
@@ -96,48 +95,10 @@ class TGPageController: UIViewController {
     }
     
     // MARK: - LifeCycle
-    deinit {
-        otherControllers.forEach{
-            $0.scrollView?.removeObserver(self, forKeyPath: "contentOffset")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        childControllers.forEach { vc in
-            vc.scrollDidScroll = { scrollView in
-                guard let scrollView = scrollView else {
-                    self.canScroll = true
-                    return
-                }
-                if !vc.canScroll {
-                    scrollView.contentOffset = .zero
-                } else if (scrollView.contentOffset.y <= 0) {
-                    vc.canScroll = false
-                    self.canScroll = true
-                    
-                    
-                }
-            }
-        }
-    }
-    
-    // 处理 KVO 变化
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        // 需要获取当前控制器
-//        if keyPath == "contentOffset" {
-//            if let newValue = change?[.newKey] as? CGPoint {
-//                let vc = self.otherControllers[self.selectIndex]
-//                if !vc.canScroll {
-////                    vc.scrollView?.contentOffset = .zero
-//                } else if (newValue.y <= 0) {
-//                    vc.canScroll = false
-//                    self.canScroll = true
-//                }
-//            }
-//        }
     }
 }
 
@@ -181,7 +142,6 @@ extension TGPageController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellID, for: indexPath)
         cell.addSubview(otherControllers[indexPath.item].view)
         otherControllers[indexPath.item].view.frame = cell.bounds
-        otherControllers[indexPath.item].view.backgroundColor = UIColor.randomColor
         return cell
     }
 }
@@ -211,19 +171,13 @@ extension TGPageController: UIScrollViewDelegate {
                 scrollView.contentOffset = CGPoint(x: 0, y: maxOffset)
             } else if scrollView.contentOffset.y >= maxOffset {
                 scrollView.contentOffset = CGPoint(x: 0, y: maxOffset)
-                canScroll = false
+                if let _ = otherControllers[selectIndex].scrollView {
+                    canScroll = false
+                }
             }
         } else if scrollView == self.collectionView {
             let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
             self.selectIndex = index
-        } else {
-            let vc = self.otherControllers[selectIndex]
-            if !vc.canScroll {
-                vc.scrollView?.contentOffset = .zero
-            } else if (scrollView.contentOffset.y <= 0) {
-                vc.canScroll = false
-                self.canScroll = true
-            }
         }
     }
     

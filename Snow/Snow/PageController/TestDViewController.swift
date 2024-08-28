@@ -10,18 +10,22 @@ import UIKit
 private let kCellID: String = "kCellID"
 
 class TestDViewController: UIViewController {
+
+    
     // MARK: - 懒加载属性
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
-//        tableView.delegate = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: kCellID)
         return tableView
     }()
     
     var canScroll: Bool = false
+    var scrollView: UIScrollView? { self.tableView }
+    var scrollViewDidScroll: ((UIScrollView) -> Void)?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -57,13 +61,19 @@ extension TestDViewController: UITableViewDataSource {
 
 extension TestDViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("在 TestDViewController 中")
+        if let scrollViewDidScroll = scrollViewDidScroll {
+            scrollViewDidScroll(scrollView)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
 }
 
-
 extension TestDViewController: TGPageContent {
-    var scrollView: UIScrollView? {
-        self.tableView
-    }
+    
+    
 }
+

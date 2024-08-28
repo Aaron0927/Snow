@@ -8,6 +8,11 @@
 import UIKit
 
 class IndividualContainerController: BaseViewController {
+    // MARK: - 懒加载属性
+    private lazy var pageController: TGPageController = {
+        let controller = TGPageController()
+        return controller
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
