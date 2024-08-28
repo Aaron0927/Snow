@@ -9,8 +9,8 @@ import UIKit
 
 class IndividualContainerController: BaseViewController {
     // MARK: - 懒加载属性
-    private lazy var pageController: TGPageController = {
-        let controller = TGPageController()
+    private lazy var pageController: IndividualTestController = {
+        let controller = IndividualTestController()
         return controller
     }()
 
@@ -22,6 +22,6 @@ class IndividualContainerController: BaseViewController {
     
 
     @IBAction func testAction(_ sender: Any) {
-        navigationController?.pushViewController(TGPageController(), animated: true)
+        navigationController?.pushViewController(IndividualTestController(), animated: true)
     }
 }

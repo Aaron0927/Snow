@@ -41,6 +41,7 @@
 		3B98BE0F2C5B61EE000DF638 /* tabbar_pe_day.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B98BE062C5B61EE000DF638 /* tabbar_pe_day.json */; };
 		3B98BE112C5B6480000DF638 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B98BE102C5B6480000DF638 /* Home.storyboard */; };
 		3BA678062C7EFECB000A505E /* TestEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA678052C7EFECB000A505E /* TestEViewController.swift */; };
+		3BA678082C7F0F4A000A505E /* IndividualTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA678072C7F0F4A000A505E /* IndividualTestController.swift */; };
 		3BACDC592C51FDCB00D2C43D /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACDC582C51FDCB00D2C43D /* NetworkTool.swift */; };
 		3BACDC5B2C521D4700D2C43D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACDC5A2C521D4700D2C43D /* HomeViewModel.swift */; };
 		3BACDC5E2C521D8400D2C43D /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACDC5D2C521D8400D2C43D /* HomeService.swift */; };
@@ -126,6 +127,7 @@
 		3B98BE062C5B61EE000DF638 /* tabbar_pe_day.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tabbar_pe_day.json; sourceTree = "<group>"; };
 		3B98BE102C5B6480000DF638 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3BA678052C7EFECB000A505E /* TestEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEViewController.swift; sourceTree = "<group>"; };
+		3BA678072C7F0F4A000A505E /* IndividualTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTestController.swift; sourceTree = "<group>"; };
 		3BACDC582C51FDCB00D2C43D /* NetworkTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
 		3BACDC5A2C521D4700D2C43D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3BACDC5D2C521D8400D2C43D /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */,
 				3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */,
+				3BA678072C7F0F4A000A505E /* IndividualTestController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				3BACDC592C51FDCB00D2C43D /* NetworkTool.swift in Sources */,
 				3B98BDC42C58F20C000DF638 /* UITabBar+Extension.swift in Sources */,
 				3B7B45CA2C7C1C8B0053A4B6 /* TGPageController.swift in Sources */,
+				3BA678082C7F0F4A000A505E /* IndividualTestController.swift in Sources */,
 				3B8231C72C51DBBC00425B7D /* HomeTableViewCell.swift in Sources */,
 				3BB5866D2C4679C600378F66 /* UIViewController+Extensions.swift in Sources */,
 				3BACDC692C52302C00D2C43D /* HomeCellViewModel.swift in Sources */,

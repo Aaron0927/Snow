@@ -7,7 +7,6 @@
 
 import UIKit
 
-private let kTopViewH: CGFloat = 300
 private let kCellID: String = "kCellID"
 
 private class TGNestScrollView: UIScrollView, UIGestureRecognizerDelegate {
@@ -34,16 +33,11 @@ class TGPageController: UIViewController {
         return view
     }()
     
-    private lazy var topView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        layout.sectionInset = .zero
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -55,24 +49,22 @@ class TGPageController: UIViewController {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCellID)
         return collectionView
     }()
-    
-    // 子控制器
-    private lazy var otherControllers: [TGPageContent] = {
-        var controllers = [TGPageContent]()
-        for _ in 0..<4 {
-            let vcd = TestDViewController()
-            vcd.scrollViewDidScroll = { scrollView in
-                if !vcd.canScroll {
+    weak var delegate: TGPageControllerDelegate?
+    private lazy var controllers: [TGPageContent] = {
+        guard let controllers = delegate?.controllersForPageController(self) else {
+            return []
+        }
+        controllers.forEach { vc in
+            vc.scrollViewDidScroll = { scrollView in
+                if !vc.canScroll {
                     scrollView.contentOffset = .zero
                 } else if (scrollView.contentOffset.y <= 0) {
-                    vcd.canScroll = false
+                    vc.canScroll = false
                     // 父视图可以滚动
                     self.canScroll = true
                 }
             }
-            controllers.append(vcd)
         }
-        controllers.append(TestEViewController())
         return controllers
     }()
     
@@ -83,21 +75,25 @@ class TGPageController: UIViewController {
         didSet {
             if canScroll {
                 // 父视图可以滚动的时候，子视图不可以滚动
-                otherControllers.forEach {
+                controllers.forEach {
                     $0.canScroll = false
                     $0.scrollView?.contentOffset = .zero
                 }
             } else {
                 // 滑动到顶部，标记子视图可以滚动
-                otherControllers.forEach { $0.canScroll = true }
+                controllers.forEach { $0.canScroll = true }
             }
         }
     }
     
+    
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 设置代理为子类
+        self.delegate = self as? TGPageControllerDelegate
         setupUI()
     }
 }
@@ -107,7 +103,6 @@ extension TGPageController {
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(scrollContentView)
-        scrollContentView.addSubview(topView)
         scrollContentView.addSubview(collectionView)
         
         scrollView.snp.makeConstraints { make in
@@ -117,31 +112,49 @@ extension TGPageController {
             make.left.right.top.bottom.equalToSuperview()
             make.width.equalToSuperview()
         }
-        topView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
-            make.height.equalTo(kTopViewH)
-        }
-        collectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(topView.snp.bottom)
-            make.bottom.equalToSuperview()
-            make.height.equalTo(scrollView)
+        
+        if let topView = delegate?.topViewForPageController(self) {
+            scrollContentView.addSubview(topView)
+            topView.snp.makeConstraints { make in
+                make.left.right.top.equalToSuperview()
+            }
+            collectionView.snp.makeConstraints { make in
+                make.left.right.equalToSuperview()
+                make.top.equalTo(topView.snp.bottom)
+                make.bottom.equalToSuperview()
+                make.height.equalTo(scrollView)
+            }
+        } else {
+            collectionView.snp.makeConstraints { make in
+                make.left.right.equalToSuperview()
+                make.top.equalToSuperview()
+                make.bottom.equalToSuperview()
+                make.height.equalTo(scrollView)
+            }
         }
         
-        otherControllers.forEach { addChild($0) }
+        controllers.forEach {
+            addChild($0)
+            $0.didMove(toParent: self)
+        }
     }
 }
 
 // MARK: - UICollectionViewDataSource
 extension TGPageController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return otherControllers.count
+        return controllers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellID, for: indexPath)
-        cell.addSubview(otherControllers[indexPath.item].view)
-        otherControllers[indexPath.item].view.frame = cell.bounds
+        let childView = controllers[indexPath.item].view as UIView
+        // 确保子视图已添加到单元格中
+        if childView.superview == nil {
+            cell.contentView.addSubview(childView) // 使用 contentView 添加
+            childView.frame = cell.contentView.bounds
+            childView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
         return cell
     }
 }
@@ -171,13 +184,16 @@ extension TGPageController: UIScrollViewDelegate {
                 scrollView.contentOffset = CGPoint(x: 0, y: maxOffset)
             } else if scrollView.contentOffset.y >= maxOffset {
                 scrollView.contentOffset = CGPoint(x: 0, y: maxOffset)
-                if let _ = otherControllers[selectIndex].scrollView {
+                if (0..<controllers.count).contains(selectIndex), let _ = controllers[selectIndex].scrollView {
                     canScroll = false
                 }
             }
         } else if scrollView == self.collectionView {
             let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
             self.selectIndex = index
+            if controllers[index].scrollView == nil {
+                canScroll = true
+            }
         }
     }
     

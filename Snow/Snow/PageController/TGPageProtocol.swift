@@ -8,14 +8,12 @@
 import UIKit
 
 // 定义容器视图协议
-protocol TGPageProtocol {
-    // TODO: 头部视图
+protocol TGPageControllerDelegate where Self: UIViewController {
+    // 头部视图
+    func topViewForPageController(_ pageController: TGPageController) -> UIView
     
-    // TODO: 控制器数组
-    
-    // 获取当前控制器
-    
-    
+    // 控制器数组
+    func controllersForPageController(_ pageController: TGPageController) -> [TGPageContent]
 }
 
 
@@ -24,6 +22,6 @@ protocol TGPageContent where Self: UIViewController {
     var canScroll: Bool { set get }
     var scrollView: UIScrollView? { get }
     
-    // scrollView 滚动回调
-    var scrollViewDidScroll: ((UIScrollView) -> Void)? { get }
+    // scrollView 滚动回调 -> 在子视图的 scrollViewDidScroll 方法中主动调用
+    var scrollViewDidScroll: ((UIScrollView) -> Void)? { set get }
 }

@@ -9,9 +9,7 @@ import UIKit
 
 private let kCellID: String = "kCellID"
 
-class TestDViewController: UIViewController {
-
-    
+class TestDViewController: UIViewController, TGPageContent {
     // MARK: - 懒加载属性
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -32,6 +30,18 @@ class TestDViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        print("disappear")
     }
 }
 
@@ -61,7 +71,6 @@ extension TestDViewController: UITableViewDataSource {
 
 extension TestDViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("在 TestDViewController 中")
         if let scrollViewDidScroll = scrollViewDidScroll {
             scrollViewDidScroll(scrollView)
         }
@@ -71,9 +80,3 @@ extension TestDViewController: UITableViewDelegate {
         
     }
 }
-
-extension TestDViewController: TGPageContent {
-    
-    
-}
-

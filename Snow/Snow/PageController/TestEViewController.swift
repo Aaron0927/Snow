@@ -17,4 +17,10 @@ class TestEViewController: UIViewController, TGPageContent {
 
         view.backgroundColor = .green
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("teste appear")
+    }
 }
