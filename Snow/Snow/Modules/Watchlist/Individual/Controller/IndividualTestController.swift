@@ -27,7 +27,10 @@ class IndividualTestController: TGPageController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Test"
+        // 坐标从 0 开始
+        self.navigationItem.title = "TT"
+        addNavBar(.white)
+
     }
 
 }

@@ -13,7 +13,13 @@ class HomeNavigationBar: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        translatesAutoresizingMaskIntoConstraints = false
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
         setupTextField()
+    }
+    
+    static func navigationBar() -> HomeNavigationBar {
+        UINib(nibName: "HomeNavigationBar", bundle: nil).instantiate(withOwner: self, options: nil).first as! HomeNavigationBar
     }
     
     private func setupTextField() {
@@ -21,6 +27,6 @@ class HomeNavigationBar: UIView {
         leftView.image = UIImage(named: "icon_navbar_search_night")
         textField.leftView = leftView
         textField.leftViewMode = .always
-        textField.layer.cornerRadius = 20
+        textField.layer.cornerRadius = 15
     }
 }

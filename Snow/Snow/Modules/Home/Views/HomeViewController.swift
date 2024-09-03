@@ -29,8 +29,14 @@ extension HomeViewController {
     }
     
     private func setupNavigationBar() {
-        let bar = UINib(nibName: "HomeNavigationBar", bundle: nil).instantiate(withOwner: nil).first as! HomeNavigationBar
+        let bar = HomeNavigationBar.navigationBar()
         addCustomNavBar(bar)
+
+        bar.snp.makeConstraints { make in
+            make.width.equalTo(kScreenW)
+            make.height.equalTo(kStatusAndNavBarH)
+            make.top.equalTo(-kStatusAndNavBarH)
+        }
     }
 }
 

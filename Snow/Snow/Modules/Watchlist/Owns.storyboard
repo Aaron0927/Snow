@@ -26,9 +26,8 @@
                                     <segue destination="blO-Y5-COa" kind="show" id="fT1-PS-vdz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYa-Qy-iYM">
-                                <rect key="frame" x="167" y="202" width="59" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYa-Qy-iYM">
+                                <rect key="frame" x="167" y="203" width="59" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="测试"/>
                                 <connections>
@@ -38,6 +37,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nog-cV-qVo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qYa-Qy-iYM" firstAttribute="top" secondItem="nog-cV-qVo" secondAttribute="top" constant="100" id="gtt-mX-U5o"/>
+                            <constraint firstItem="qYa-Qy-iYM" firstAttribute="centerX" secondItem="jMl-ic-9Gk" secondAttribute="centerX" id="oJu-Fa-uIe"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cta-u2-DpW"/>
                 </viewController>

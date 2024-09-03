@@ -17,7 +17,8 @@ class IndividualContainerController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        addNavBar(.white)
+        navigationItem.title = "自选"
     }
     
 

@@ -202,11 +202,11 @@
 		3B2BACC72C72F5C900CCA3F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3BE0873A2C85AFC100577796 /* IndividualStockController.swift */,
-				3BE0873F2C85C02600577796 /* ListViewController.swift */,
 				3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */,
-				3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */,
+				3BE0873A2C85AFC100577796 /* IndividualStockController.swift */,
 				3BA678072C7F0F4A000A505E /* IndividualTestController.swift */,
+				3BE0873F2C85C02600577796 /* ListViewController.swift */,
+				3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

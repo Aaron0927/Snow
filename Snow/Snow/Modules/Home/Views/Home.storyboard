@@ -287,7 +287,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Home" id="u4b-ax-gbK"/>
+                    <navigationItem key="navigationItem" id="u4b-ax-gbK"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="geb-f9-4zn" id="Ufr-Nv-uR3"/>

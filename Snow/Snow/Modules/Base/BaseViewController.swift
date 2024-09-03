@@ -21,23 +21,25 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         // 设置导航栏阴影为透明色图片
         navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.isTranslucent = false
-        
-//        // 添加自定义导航栏背景
-        addNavBar(.white)        
     }
     
+}
+
+extension UIViewController {
     // 添加自定义导航栏背景
     func addNavBar(_ color: UIColor) {
-        let size = CGSize(width: view.bounds.width, height: kStatusBarH + kNavBarH)
+        edgesForExtendedLayout = [.bottom]
+        let size = CGSize(width: view.bounds.width, height:  kStatusAndNavBarH)
         let navImageView = UIImageView(image: UIImage(size: size, color: color))
         view.addSubview(navImageView)
+        navImageView.frame = CGRectMake(0, -kStatusAndNavBarH, size.width, size.height)
     }
     
     // 添加自定义导航栏视图
     func addCustomNavBar(_ view: UIView) {
-        let size = CGSize(width: view.bounds.width, height: kNavBarH)
+        edgesForExtendedLayout = [.bottom]
+        let size = CGSize(width: self.view.bounds.width, height: kStatusAndNavBarH)
+        self.view.addSubview(view)
         view.frame = CGRectMake(0, 0, size.width, size.height)
-        navigationController?.navigationBar.addSubview(view)
     }
 }
