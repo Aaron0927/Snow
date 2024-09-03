@@ -12,4 +12,7 @@ target 'Snow' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Charts'
+  
+  pod 'JXSegmentedView' # 分类切换滚动视图
+  pod 'JXPagingView/Paging'
 end

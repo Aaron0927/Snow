@@ -24,12 +24,17 @@ class TGPageController: UIViewController {
         scrollView.backgroundColor = .white
         scrollView.showsVerticalScrollIndicator = false
         scrollView.delegate = self
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return scrollView
     }()
     
-    private lazy var scrollContentView: UIView = {
-        let view = UIView()
+    private lazy var scrollContentView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
         return view
     }()
     
@@ -46,11 +51,11 @@ class TGPageController: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCellID)
+        collectionView.register(TGPageCollectionViewCell.self, forCellWithReuseIdentifier: kCellID)
         return collectionView
     }()
-    weak var delegate: TGPageControllerDelegate?
-    private lazy var controllers: [TGPageContent] = {
+    
+    private lazy var controllers: [TGPageContentController] = {
         guard let controllers = delegate?.controllersForPageController(self) else {
             return []
         }
@@ -68,6 +73,15 @@ class TGPageController: UIViewController {
         return controllers
     }()
     
+    private lazy var pageTitleView: TGPageTitleView = {
+        let titles = self.delegate?.pageTitlesForPageController(self) ?? []
+        let titlePageViewH = self.delegate?.pageTitleViewHeightForPageController(self)
+        let titlePageView = TGPageTitleView(titles: titles)
+        titlePageView.delegate = self
+        return titlePageView
+    }()
+    
+    private weak var delegate: TGPageControllerDelegate?
     private var selectIndex: Int = 0
     
     // MARK: - Properties
@@ -103,8 +117,6 @@ extension TGPageController {
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(scrollContentView)
-        scrollContentView.addSubview(collectionView)
-        
         scrollView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
         }
@@ -114,23 +126,21 @@ extension TGPageController {
         }
         
         if let topView = delegate?.topViewForPageController(self) {
-            scrollContentView.addSubview(topView)
+            scrollContentView.addArrangedSubview(topView)
+            let topViewH = delegate?.topViewHeightForPageController(self) ?? 0
             topView.snp.makeConstraints { make in
-                make.left.right.top.equalToSuperview()
+                make.height.equalTo(topViewH)
             }
-            collectionView.snp.makeConstraints { make in
-                make.left.right.equalToSuperview()
-                make.top.equalTo(topView.snp.bottom)
-                make.bottom.equalToSuperview()
-                make.height.equalTo(scrollView)
-            }
-        } else {
-            collectionView.snp.makeConstraints { make in
-                make.left.right.equalToSuperview()
-                make.top.equalToSuperview()
-                make.bottom.equalToSuperview()
-                make.height.equalTo(scrollView)
-            }
+        }
+        
+        let titlePageViewH = self.delegate?.pageTitleViewHeightForPageController(self)
+        scrollContentView.addArrangedSubview(pageTitleView)
+        pageTitleView.snp.makeConstraints { make in
+            make.height.equalTo(titlePageViewH!)
+        }
+        scrollContentView.addArrangedSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.height.equalTo(self.view).offset(-titlePageViewH!)
         }
         
         controllers.forEach {
@@ -147,14 +157,9 @@ extension TGPageController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellID, for: indexPath)
-        let childView = controllers[indexPath.item].view as UIView
-        // 确保子视图已添加到单元格中
-        if childView.superview == nil {
-            cell.contentView.addSubview(childView) // 使用 contentView 添加
-            childView.frame = cell.contentView.bounds
-            childView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellID, for: indexPath) as! TGPageCollectionViewCell
+        cell.configure(with: controllers[indexPath.item])
+        
         return cell
     }
 }
@@ -179,7 +184,7 @@ extension TGPageController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
-            let maxOffset: CGFloat = scrollView.contentSize.height - scrollView.bounds.height
+            let maxOffset: CGFloat = pageTitleView.frame.minY
             if !canScroll {
                 scrollView.contentOffset = CGPoint(x: 0, y: maxOffset)
             } else if scrollView.contentOffset.y >= maxOffset {
@@ -203,5 +208,12 @@ extension TGPageController: UIScrollViewDelegate {
         } else {
             self.collectionView.isScrollEnabled = true
         }
+    }
+}
+
+// MARK: - TGPageTitleViewDelegate
+extension TGPageController: TGPageTitleDelegate {
+    func pageTitle(pageTitleView: TGPageTitleView, didSelectAt index: Int) {
+        collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(index), y: 0), animated: true)
     }
 }

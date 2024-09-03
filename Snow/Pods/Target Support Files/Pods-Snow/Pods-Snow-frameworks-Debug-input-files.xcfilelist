@@ -1,5 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-Snow/Pods-Snow-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/JXPagingView/JXPagingView.framework
+${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework

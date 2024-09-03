@@ -9,7 +9,7 @@ import UIKit
 
 private let kCellID: String = "kCellID"
 
-class TestDViewController: UIViewController, TGPageContent {
+class TestDViewController: UIViewController, TGPageContentController {
     // MARK: - 懒加载属性
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -35,13 +35,13 @@ class TestDViewController: UIViewController, TGPageContent {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("appear")
+        print("\(self) \(#function)")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        print("disappear")
+        print("\(self) \(#function)")
     }
 }
 

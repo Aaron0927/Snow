@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TestEViewController: UIViewController, TGPageContent {
+class TestEViewController: UIViewController, TGPageContentController {
     var canScroll: Bool = false
     var scrollViewDidScroll: ((UIScrollView) -> Void)?
     var scrollView: UIScrollView?
@@ -21,6 +21,12 @@ class TestEViewController: UIViewController, TGPageContent {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("teste appear")
+        print("\(self) \(#function)")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        print("\(self) \(#function)")
     }
 }

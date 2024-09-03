@@ -21,6 +21,8 @@
 		3B2BACCA2C72F61400CCA3F2 /* IndividualController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */; };
 		3B2BACCD2C72F67B00CCA3F2 /* IndividualViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BACCC2C72F67A00CCA3F2 /* IndividualViewModel.swift */; };
 		3B2FCB102C731AD400928702 /* StockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FCB0F2C731AD400928702 /* StockData.swift */; };
+		3B7515482C81B35E00270817 /* TGPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7515472C81B35E00270817 /* TGPageCollectionViewCell.swift */; };
+		3B75154C2C81B58300270817 /* TGPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B75154B2C81B58300270817 /* TGPageTitleView.swift */; };
 		3B7B45B72C7C1A5D0053A4B6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */; };
 		3B7B45C12C7C1AB60053A4B6 /* TGCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7B45BE2C7C1AA70053A4B6 /* TGCoreKit.framework */; };
 		3B7B45C22C7C1AB60053A4B6 /* TGCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7B45BE2C7C1AA70053A4B6 /* TGCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -59,6 +61,8 @@
 		3BB583452C464D7500378F66 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB583442C464D7400378F66 /* BaseTabBarController.swift */; };
 		3BB5866B2C466D9E00378F66 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB5866A2C466D9E00378F66 /* UIImage+Extensions.swift */; };
 		3BB5866D2C4679C600378F66 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB5866C2C4679C600378F66 /* UIViewController+Extensions.swift */; };
+		3BE0873B2C85AFC100577796 /* IndividualStockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0873A2C85AFC100577796 /* IndividualStockController.swift */; };
+		3BE087422C85C02600577796 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0873F2C85C02600577796 /* ListViewController.swift */; };
 		6566170A41DC5596EBF51F40 /* Pods_Snow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF99AA0EAA4AC3D4EBB86A5 /* Pods_Snow.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +112,8 @@
 		3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualController.swift; sourceTree = "<group>"; };
 		3B2BACCC2C72F67A00CCA3F2 /* IndividualViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualViewModel.swift; sourceTree = "<group>"; };
 		3B2FCB0F2C731AD400928702 /* StockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockData.swift; sourceTree = "<group>"; };
+		3B7515472C81B35E00270817 /* TGPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B75154B2C81B58300270817 /* TGPageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageTitleView.swift; sourceTree = "<group>"; };
 		3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3B7B45B82C7C1AA70053A4B6 /* TGCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TGCoreKit.xcodeproj; path = ../../../TGCoreKit/TGCoreKit.xcodeproj; sourceTree = "<group>"; };
 		3B7B45C62C7C1B7F0053A4B6 /* SnowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowHeader.swift; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 		3BB583442C464D7400378F66 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		3BB5866A2C466D9E00378F66 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		3BB5866C2C4679C600378F66 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		3BE0873A2C85AFC100577796 /* IndividualStockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualStockController.swift; sourceTree = "<group>"; };
+		3BE0873F2C85C02600577796 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6AF99AA0EAA4AC3D4EBB86A5 /* Pods_Snow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934FF5F750C686C8F05C7EE8 /* Pods-Snow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snow.release.xcconfig"; path = "Target Support Files/Pods-Snow/Pods-Snow.release.xcconfig"; sourceTree = "<group>"; };
 		AC1224AA378DC101E43323AA /* Pods-Snow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snow.debug.xcconfig"; path = "Target Support Files/Pods-Snow/Pods-Snow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +202,8 @@
 		3B2BACC72C72F5C900CCA3F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3BE0873A2C85AFC100577796 /* IndividualStockController.swift */,
+				3BE0873F2C85C02600577796 /* ListViewController.swift */,
 				3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */,
 				3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */,
 				3BA678072C7F0F4A000A505E /* IndividualTestController.swift */,
@@ -257,7 +267,9 @@
 			isa = PBXGroup;
 			children = (
 				3B7B45C92C7C1C8B0053A4B6 /* TGPageController.swift */,
+				3B7515472C81B35E00270817 /* TGPageCollectionViewCell.swift */,
 				3B1D33AE2C7C711A00E248AA /* TGPageProtocol.swift */,
+				3B75154B2C81B58300270817 /* TGPageTitleView.swift */,
 				3B1D33AC2C7C6E2300E248AA /* TestDViewController.swift */,
 				3BA678052C7EFECB000A505E /* TestEViewController.swift */,
 			);
@@ -608,11 +620,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE087422C85C02600577796 /* ListViewController.swift in Sources */,
 				3B24D5F62C5B794400CB3008 /* HomeNavigationBar.swift in Sources */,
 				3B98BDDB2C5A2F42000DF638 /* UIColor+Extension.swift in Sources */,
 				3BACDC672C522F1500D2C43D /* Observable.swift in Sources */,
 				3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */,
 				3BB583452C464D7500378F66 /* BaseTabBarController.swift in Sources */,
+				3B75154C2C81B58300270817 /* TGPageTitleView.swift in Sources */,
 				3BB5812A2C4610DC00378F66 /* BaseViewController.swift in Sources */,
 				3B2FCB102C731AD400928702 /* StockData.swift in Sources */,
 				3BACDC592C51FDCB00D2C43D /* NetworkTool.swift in Sources */,
@@ -628,7 +642,9 @@
 				3BACDC5E2C521D8400D2C43D /* HomeService.swift in Sources */,
 				3BB581282C460FFF00378F66 /* BaseNavigationController.swift in Sources */,
 				3BA678062C7EFECB000A505E /* TestEViewController.swift in Sources */,
+				3BE0873B2C85AFC100577796 /* IndividualStockController.swift in Sources */,
 				3BB580352C46017200378F66 /* AppDelegate.swift in Sources */,
+				3B7515482C81B35E00270817 /* TGPageCollectionViewCell.swift in Sources */,
 				3B1D33AD2C7C6E2300E248AA /* TestDViewController.swift in Sources */,
 				3BACDC602C5224EE00D2C43D /* HomeFlowModel.swift in Sources */,
 				3B1D33AF2C7C711A00E248AA /* TGPageProtocol.swift in Sources */,

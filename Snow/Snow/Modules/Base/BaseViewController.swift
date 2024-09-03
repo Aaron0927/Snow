@@ -21,9 +21,10 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         // 设置导航栏阴影为透明色图片
         navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.isTranslucent = false
         
 //        // 添加自定义导航栏背景
-//        addNavBar(.white)
+        addNavBar(.white)        
     }
     
     // 添加自定义导航栏背景

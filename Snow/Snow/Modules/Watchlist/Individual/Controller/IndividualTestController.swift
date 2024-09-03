@@ -7,20 +7,15 @@
 
 import UIKit
 
-private let kTopViewH: CGFloat = 400
-
 class IndividualTestController: TGPageController {
     private lazy var topView = {
         let view = UIView()
         view.backgroundColor = .red
-        view.snp.makeConstraints { make in
-            make.height.equalTo(kTopViewH)
-        }
         return view
     }()
     
-    private lazy var controllers: [TGPageContent] = {
-        var controllers = [TGPageContent]()
+    private lazy var controllers: [TGPageContentController] = {
+        var controllers = [TGPageContentController]()
         for _ in 0..<2 {
             let vcd = TestDViewController()
             controllers.append(vcd)
@@ -31,16 +26,27 @@ class IndividualTestController: TGPageController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Test"
     }
 
 }
 
-extension IndividualTestController: TGPageControllerDelegate {
-    func controllersForPageController(_ pageController: TGPageController) -> [TGPageContent] {
+extension IndividualTestController: TGPageControllerDelegate {    
+    func controllersForPageController(_ pageController: TGPageController) -> [TGPageContentController] {
         return controllers
     }
     
-    func topViewForPageController(_ pageController: TGPageController) -> UIView {
+    func topViewForPageController(_ pageController: TGPageController) -> UIView? {
         return topView
     }
+    
+    func topViewHeightForPageController(_ pageController: TGPageController) -> CGFloat {
+        return 300
+    }
+    
+    func pageTitlesForPageController(_ pageController: TGPageController) -> [String] {
+        return ["page1", "page2", "page3"]
+    }
 }
+
