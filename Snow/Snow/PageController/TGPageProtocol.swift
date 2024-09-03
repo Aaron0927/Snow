@@ -24,6 +24,15 @@ protocol TGPageControllerDelegate where Self: UIViewController {
 }
 
 extension TGPageControllerDelegate {
+    // 头部视图
+    func topViewForPageController(_ pageController: TGPageController) -> UIView? {
+        return nil
+    }
+    // 头部视图高度
+    func topViewHeightForPageController(_ pageController: TGPageController) -> CGFloat {
+        return 0
+    }
+    
     // 标题数组高度
     func pageTitleViewHeightForPageController(_ pageController: TGPageController) -> CGFloat {
         return 50

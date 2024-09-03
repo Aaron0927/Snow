@@ -63,6 +63,7 @@
 		3BB5866D2C4679C600378F66 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB5866C2C4679C600378F66 /* UIViewController+Extensions.swift */; };
 		3BE0873B2C85AFC100577796 /* IndividualStockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0873A2C85AFC100577796 /* IndividualStockController.swift */; };
 		3BE087422C85C02600577796 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0873F2C85C02600577796 /* ListViewController.swift */; };
+		3BE6EA952C86EB80000C00C7 /* MarketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EA942C86EB80000C00C7 /* MarketsController.swift */; };
 		6566170A41DC5596EBF51F40 /* Pods_Snow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF99AA0EAA4AC3D4EBB86A5 /* Pods_Snow.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +156,7 @@
 		3BB5866C2C4679C600378F66 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		3BE0873A2C85AFC100577796 /* IndividualStockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualStockController.swift; sourceTree = "<group>"; };
 		3BE0873F2C85C02600577796 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		3BE6EA942C86EB80000C00C7 /* MarketsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsController.swift; sourceTree = "<group>"; };
 		6AF99AA0EAA4AC3D4EBB86A5 /* Pods_Snow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934FF5F750C686C8F05C7EE8 /* Pods-Snow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snow.release.xcconfig"; path = "Target Support Files/Pods-Snow/Pods-Snow.release.xcconfig"; sourceTree = "<group>"; };
 		AC1224AA378DC101E43323AA /* Pods-Snow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snow.debug.xcconfig"; path = "Target Support Files/Pods-Snow/Pods-Snow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		3BB5811D2C460F1000378F66 /* Watchlist */ = {
 			isa = PBXGroup;
 			children = (
+				3BE6EA922C86EB66000C00C7 /* Market */,
 				3B2BACC82C72F5D500CCA3F2 /* Individual */,
 				3B24D5FF2C5B92CA00CB3008 /* Owns.storyboard */,
 			);
@@ -445,6 +448,22 @@
 				3BB583442C464D7400378F66 /* BaseTabBarController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		3BE6EA922C86EB66000C00C7 /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				3BE6EA932C86EB6D000C00C7 /* Controller */,
+			);
+			path = Market;
+			sourceTree = "<group>";
+		};
+		3BE6EA932C86EB6D000C00C7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3BE6EA942C86EB80000C00C7 /* MarketsController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		9C5BD471113397DCD485D27D /* Pods */ = {
@@ -622,6 +641,7 @@
 			files = (
 				3BE087422C85C02600577796 /* ListViewController.swift in Sources */,
 				3B24D5F62C5B794400CB3008 /* HomeNavigationBar.swift in Sources */,
+				3BE6EA952C86EB80000C00C7 /* MarketsController.swift in Sources */,
 				3B98BDDB2C5A2F42000DF638 /* UIColor+Extension.swift in Sources */,
 				3BACDC672C522F1500D2C43D /* Observable.swift in Sources */,
 				3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */,

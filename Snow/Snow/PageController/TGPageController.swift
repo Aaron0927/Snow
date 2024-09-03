@@ -87,6 +87,16 @@ class TGPageController: UIViewController {
     // MARK: - Properties
     private var canScroll: Bool = true {
         didSet {
+            if oldValue == canScroll {
+                return
+            }
+            // 父 scrollView 不可以滚动时设置子视图滚动
+            if scrollView.contentSize.height <= scrollView.frame.height {
+                canScroll = false
+                controllers.forEach { $0.canScroll = true }
+                return
+            }
+            
             if canScroll {
                 // 父视图可以滚动的时候，子视图不可以滚动
                 controllers.forEach {
@@ -109,6 +119,15 @@ class TGPageController: UIViewController {
         // 设置代理为子类
         self.delegate = self as? TGPageControllerDelegate
         setupUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // 父 scrollView 不可以滚动时设置子视图滚动
+        if scrollView.contentSize.height <= scrollView.frame.height {
+            canScroll = false
+        }
     }
 }
 
