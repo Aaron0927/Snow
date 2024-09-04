@@ -17,6 +17,28 @@ private class TGNestScrollView: UIScrollView, UIGestureRecognizerDelegate {
     }
 }
 
+private class TGCollectionView: UICollectionView, UIGestureRecognizerDelegate {
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let panGestureClass = NSClassFromString("UIScrollViewPanGestureRecognizer"),
+           gestureRecognizer.isMember(of: panGestureClass) {
+            let panGesture = gestureRecognizer as! UIPanGestureRecognizer
+            let velocityX = panGesture.velocity(in: panGesture.view).x
+            if velocityX > 0 {
+                // 当前在第一个页面，且往左滑动，就放弃该手势，让外层接收
+                if contentOffset.x == 0 {
+                    return false
+                }
+            } else if velocityX < 0 {
+                // 当前在最后一个页面，且往右滑动，就放弃该手势，让外层接收
+                if contentOffset.x + bounds.size.width == contentSize.width {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+}
+
 class TGPageView: UIView {
     // MARK: - 懒加载属性
     private lazy var scrollView: TGNestScrollView = {
@@ -38,14 +60,14 @@ class TGPageView: UIView {
         return view
     }()
     
-    private lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: TGCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = .zero
         layout.scrollDirection = .horizontal
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = TGCollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
