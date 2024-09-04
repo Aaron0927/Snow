@@ -130,7 +130,8 @@ class TGPageView: UIView {
         }
     }
     private var selectIndex: Int = 0
-    private var currentOffset: CGFloat = 0
+    private var startOffsetX: CGFloat = 0
+    private var isForbidScrollDelegate: Bool = false // 是否禁止滚动
     private weak var parentController: UIViewController?
     weak var delegate: TGPageDelegate?
 
@@ -226,7 +227,8 @@ extension TGPageView: UIScrollViewDelegate {
         // 防止 collectionView 滚动的时候，scrollView 上下滚动
         if scrollView == self.collectionView {
             self.scrollView.isScrollEnabled = false
-            self.currentOffset = scrollView.contentOffset.x
+            isForbidScrollDelegate = false
+            startOffsetX = scrollView.contentOffset.x
         } else if scrollView == self.scrollView {
             self.collectionView.isScrollEnabled = false
         }
@@ -250,30 +252,28 @@ extension TGPageView: UIScrollViewDelegate {
                 canScroll = true
             }
             
-            var currentIndex = 0
-            var nextIndex = 0
+            // 获取滚动进度，更新指示器位置
+            if isForbidScrollDelegate { return }
+            var sourceIndex = 0
+            var targetIndex = 0
             var progress: CGFloat = 0
             
             // 判断滚动方向
-            if scrollView.contentOffset.x > currentOffset {
+            let currentOffsetX = scrollView.contentOffset.x
+            if currentOffsetX > startOffsetX {
                 // 向右滑动
-                currentIndex = Int(currentOffset / scrollView.bounds.width)
-                nextIndex = Int(ceil(scrollView.contentOffset.x / scrollView.bounds.width))
-                progress = (scrollView.contentOffset.x - currentOffset) / scrollView.bounds.width
+                sourceIndex = Int(floor(currentOffsetX / scrollView.bounds.width))
+                targetIndex = min(controllers.count - 1, sourceIndex + 1)
+                progress = (currentOffsetX - CGFloat(sourceIndex) * scrollView.bounds.width) / scrollView.bounds.width
             } else {
                 // 向左滑动
-                currentIndex = Int(currentOffset / scrollView.bounds.width)
-                nextIndex = Int(floor(scrollView.contentOffset.x / scrollView.bounds.width))
-                progress = (currentOffset - scrollView.contentOffset.x) / scrollView.bounds.width
+                sourceIndex = Int(ceil(currentOffsetX / scrollView.frame.width))
+                targetIndex = max(0, sourceIndex - 1)
+                progress = (CGFloat(sourceIndex) * scrollView.frame.width - currentOffsetX) / scrollView.bounds.width
             }
-            if progress > 1 {
-                progress = 1
-            }
-            print("currentIndex:\(currentIndex), nextIndex:\(nextIndex), progress:\(progress)")
-            if nextIndex >= 0 && nextIndex < controllers.count {
-                // 更新 titleView
-                pageTitleView.updateIndicatorView(from: currentIndex, to: nextIndex, progress: progress)
-            }
+            print("sourceIndex:\(sourceIndex), targetIndex:\(targetIndex), progress:\(progress)")
+            // 更新 titleView
+            pageTitleView.updateIndicatorView(from: sourceIndex, to: targetIndex, progress: progress)
         }
     }
     
@@ -289,6 +289,7 @@ extension TGPageView: UIScrollViewDelegate {
 // MARK: - TGPageTitleViewDelegate
 extension TGPageView: TGPageTitleDelegate {
     func pageTitle(pageTitleView: TGPageTitleView, didSelectAt index: Int) {
+        isForbidScrollDelegate = true
         collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(index), y: 0), animated: false)
     }
 }

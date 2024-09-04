@@ -29,14 +29,7 @@ class TGPageTitleView: UIView {
     // MARK: - 自定义属性
     private var titles: [String]
     private var titleLabels: [UILabel] = []
-    private var currentSelectIndex: Int = 0 {
-        didSet {
-            if !isScroll {
-                delegate?.pageTitle(pageTitleView: self, didSelectAt: currentSelectIndex)
-            }
-        }
-    }
-    private var isScroll: Bool = false // 用于判断点击还是滑动
+    private var currentSelectIndex: Int = 0
     var delegate: TGPageTitleDelegate?
     
     // MARK: - 系统方法回调
@@ -99,13 +92,15 @@ extension TGPageTitleView {
     func updateLineViewPosition(at index: Int) {
         let currentLabel = titleLabels[currentSelectIndex]
         let nextLabel = titleLabels[index]
+        
         UIView.animate(withDuration: 0.25) {
             self.lineView.center.x = nextLabel.center.x
             currentLabel.font = .systemFont(ofSize: 15, weight: .regular)
             nextLabel.font = .systemFont(ofSize: 15, weight: .bold)
-        } completion: { _ in
-            self.currentSelectIndex = index
         }
+        
+        currentSelectIndex = index
+        delegate?.pageTitle(pageTitleView: self, didSelectAt: currentSelectIndex)
     }
 }
 
@@ -116,7 +111,6 @@ extension TGPageTitleView {
         if index == currentSelectIndex {
             return
         }
-        isScroll = false
         updateLineViewPosition(at: index)
     }
 }
@@ -124,7 +118,6 @@ extension TGPageTitleView {
 // MARK: - Public
 extension TGPageTitleView {
     func updateIndicatorView(from sourceIndex: Int, to targetIndex: Int, progress: CGFloat) {
-        isScroll = true
         let currentLabel = titleLabels[sourceIndex]
         let targetLabel = titleLabels[targetIndex]
         
@@ -132,10 +125,9 @@ extension TGPageTitleView {
         let distance = targetLabel.center.x - currentLabel.center.x
         self.lineView.center.x = currentLabel.center.x + distance * progress
         
-        if progress == 1 {
-            currentLabel.font = .systemFont(ofSize: 15, weight: .regular)
-            targetLabel.font = .systemFont(ofSize: 15, weight: .bold)
-            self.currentSelectIndex = targetIndex
-        }
+//        currentLabel.font = .systemFont(ofSize: 15, weight: .regular)
+//        targetLabel.font = .systemFont(ofSize: 15, weight: .bold)
+        // 设置时机？
+//        currentSelectIndex = targetIndex
     }
 }

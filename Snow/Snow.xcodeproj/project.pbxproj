@@ -24,8 +24,6 @@
 		3B7515482C81B35E00270817 /* TGPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7515472C81B35E00270817 /* TGPageCollectionViewCell.swift */; };
 		3B75154C2C81B58300270817 /* TGPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B75154B2C81B58300270817 /* TGPageTitleView.swift */; };
 		3B7B45B72C7C1A5D0053A4B6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */; };
-		3B7B45C12C7C1AB60053A4B6 /* TGCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7B45BE2C7C1AA70053A4B6 /* TGCoreKit.framework */; };
-		3B7B45C22C7C1AB60053A4B6 /* TGCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7B45BE2C7C1AA70053A4B6 /* TGCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45C62C7C1B7F0053A4B6 /* SnowHeader.swift */; };
 		3B7B45CA2C7C1C8B0053A4B6 /* TGPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45C92C7C1C8B0053A4B6 /* TGPageView.swift */; };
 		3B7B45CE2C7C1EF40053A4B6 /* IndividualContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */; };
@@ -66,19 +64,21 @@
 		3BE6EA952C86EB80000C00C7 /* MarketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EA942C86EB80000C00C7 /* MarketsController.swift */; };
 		3BE6EA972C86FB1F000C00C7 /* MarketsAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EA962C86FB1F000C00C7 /* MarketsAViewController.swift */; };
 		6566170A41DC5596EBF51F40 /* Pods_Snow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF99AA0EAA4AC3D4EBB86A5 /* Pods_Snow.framework */; };
+		936AB80E2C88B66C006B291E /* TGCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936AB80B2C88B653006B291E /* TGCoreKit.framework */; };
+		936AB80F2C88B66C006B291E /* TGCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 936AB80B2C88B653006B291E /* TGCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3B7B45BD2C7C1AA70053A4B6 /* PBXContainerItemProxy */ = {
+		936AB80A2C88B653006B291E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3B7B45B82C7C1AA70053A4B6 /* TGCoreKit.xcodeproj */;
+			containerPortal = 936AB8052C88B653006B291E /* TGCoreKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3BD696C22C6CB7F2007E837B;
 			remoteInfo = TGCoreKit;
 		};
-		3B7B45BF2C7C1AA70053A4B6 /* PBXContainerItemProxy */ = {
+		936AB80C2C88B653006B291E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3B7B45B82C7C1AA70053A4B6 /* TGCoreKit.xcodeproj */;
+			containerPortal = 936AB8052C88B653006B291E /* TGCoreKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3BD696DD2C6DEE2D007E837B;
 			remoteInfo = TGCoreKitTests;
@@ -92,7 +92,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3B7B45C22C7C1AB60053A4B6 /* TGCoreKit.framework in Embed Frameworks */,
+				936AB80F2C88B66C006B291E /* TGCoreKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,7 +117,6 @@
 		3B7515472C81B35E00270817 /* TGPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B75154B2C81B58300270817 /* TGPageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageTitleView.swift; sourceTree = "<group>"; };
 		3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		3B7B45B82C7C1AA70053A4B6 /* TGCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TGCoreKit.xcodeproj; path = ../../../TGCoreKit/TGCoreKit.xcodeproj; sourceTree = "<group>"; };
 		3B7B45C62C7C1B7F0053A4B6 /* SnowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowHeader.swift; sourceTree = "<group>"; };
 		3B7B45C92C7C1C8B0053A4B6 /* TGPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageView.swift; sourceTree = "<group>"; };
 		3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualContainerController.swift; sourceTree = "<group>"; };
@@ -161,6 +160,7 @@
 		3BE6EA962C86FB1F000C00C7 /* MarketsAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsAViewController.swift; sourceTree = "<group>"; };
 		6AF99AA0EAA4AC3D4EBB86A5 /* Pods_Snow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934FF5F750C686C8F05C7EE8 /* Pods-Snow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snow.release.xcconfig"; path = "Target Support Files/Pods-Snow/Pods-Snow.release.xcconfig"; sourceTree = "<group>"; };
+		936AB8052C88B653006B291E /* TGCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TGCoreKit.xcodeproj; path = ../../TGCoreKit/TGCoreKit.xcodeproj; sourceTree = "<group>"; };
 		AC1224AA378DC101E43323AA /* Pods-Snow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snow.debug.xcconfig"; path = "Target Support Files/Pods-Snow/Pods-Snow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6566170A41DC5596EBF51F40 /* Pods_Snow.framework in Frameworks */,
-				3B7B45C12C7C1AB60053A4B6 /* TGCoreKit.framework in Frameworks */,
+				936AB80E2C88B66C006B291E /* TGCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,15 +249,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		3B7B45B92C7C1AA70053A4B6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3B7B45BE2C7C1AA70053A4B6 /* TGCoreKit.framework */,
-				3B7B45C02C7C1AA70053A4B6 /* TGCoreKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		3B98BDA82C574410000DF638 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,7 +305,7 @@
 		3BB580282C46017200378F66 = {
 			isa = PBXGroup;
 			children = (
-				3B7B45B82C7C1AA70053A4B6 /* TGCoreKit.xcodeproj */,
+				936AB8052C88B653006B291E /* TGCoreKit.xcodeproj */,
 				3BB580332C46017200378F66 /* Snow */,
 				3BB580322C46017200378F66 /* Products */,
 				9C5BD471113397DCD485D27D /* Pods */,
@@ -469,6 +460,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		936AB8062C88B653006B291E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				936AB80B2C88B653006B291E /* TGCoreKit.framework */,
+				936AB80D2C88B653006B291E /* TGCoreKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9C5BD471113397DCD485D27D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,8 +537,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3B7B45B92C7C1AA70053A4B6 /* Products */;
-					ProjectRef = 3B7B45B82C7C1AA70053A4B6 /* TGCoreKit.xcodeproj */;
+					ProductGroup = 936AB8062C88B653006B291E /* Products */;
+					ProjectRef = 936AB8052C88B653006B291E /* TGCoreKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -549,18 +549,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3B7B45BE2C7C1AA70053A4B6 /* TGCoreKit.framework */ = {
+		936AB80B2C88B653006B291E /* TGCoreKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = TGCoreKit.framework;
-			remoteRef = 3B7B45BD2C7C1AA70053A4B6 /* PBXContainerItemProxy */;
+			remoteRef = 936AB80A2C88B653006B291E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3B7B45C02C7C1AA70053A4B6 /* TGCoreKitTests.xctest */ = {
+		936AB80D2C88B653006B291E /* TGCoreKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = TGCoreKitTests.xctest;
-			remoteRef = 3B7B45BF2C7C1AA70053A4B6 /* PBXContainerItemProxy */;
+			remoteRef = 936AB80C2C88B653006B291E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
