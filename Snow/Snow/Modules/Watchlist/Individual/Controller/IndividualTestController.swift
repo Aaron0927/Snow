@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IndividualTestController: TGPageController {
+class IndividualTestController: UIViewController {
     private lazy var topView = {
         let view = UIView()
         view.backgroundColor = .red
@@ -35,20 +35,20 @@ class IndividualTestController: TGPageController {
 
 }
 
-extension IndividualTestController: TGPageControllerDelegate {    
-    func controllersForPageController(_ pageController: TGPageController) -> [TGPageContentController] {
+extension IndividualTestController: TGPageDelegate {    
+    func controllersForPageView(_ pageController: TGPageView) -> [TGPageContentController] {
         return controllers
     }
     
-    func topViewForPageController(_ pageController: TGPageController) -> UIView? {
+    func topViewForPageView(_ pageController: TGPageView) -> UIView? {
         return topView
     }
     
-    func topViewHeightForPageController(_ pageController: TGPageController) -> CGFloat {
+    func topViewHeightForPageView(_ pageController: TGPageView) -> CGFloat {
         return 300
     }
     
-    func pageTitlesForPageController(_ pageController: TGPageController) -> [String] {
+    func pageTitlesForPageView(_ pageController: TGPageView) -> [String] {
         return ["page1", "page2", "page3"]
     }
 }

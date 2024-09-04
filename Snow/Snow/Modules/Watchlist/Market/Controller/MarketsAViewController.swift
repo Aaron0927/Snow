@@ -7,23 +7,40 @@
 
 import UIKit
 
-class MarketsAViewController: UIViewController {
+class MarketsAViewController: UIViewController, TGPageContentController {
+    
+    var canScroll: Bool = true
+    var scrollViewDidScroll: ((UIScrollView) -> Void)? = nil
+    var scrollView: UIScrollView? = nil
+    
+    private lazy var pageView: TGPageView = {
+        let pageView = TGPageView(parentController: self)
+        pageView.delegate = self
+        return pageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(pageView)
+        pageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
 
-        // Do any additional setup after loading the view.
+}
+
+extension MarketsAViewController: TGPageDelegate {
+    func controllersForPageView(_ pageController: TGPageView) -> [TGPageContentController] {
+        var controllers = [TGPageContentController]()
+        for _ in 0..<5 {
+            let vcd = TestDViewController()
+            controllers.append(vcd)
+        }
+        return controllers
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func pageTitlesForPageView(_ pageController: TGPageView) -> [String] {
+        return ["沪深", "北证", "板块", "科创", "沪深港通"]
     }
-    */
-
 }

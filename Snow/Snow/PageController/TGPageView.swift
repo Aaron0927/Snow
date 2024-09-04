@@ -17,7 +17,7 @@ private class TGNestScrollView: UIScrollView, UIGestureRecognizerDelegate {
     }
 }
 
-class TGPageView: UIViewController {
+class TGPageView: UIView {
     // MARK: - 懒加载属性
     private lazy var scrollView: TGNestScrollView = {
         let scrollView = TGNestScrollView()
@@ -56,7 +56,7 @@ class TGPageView: UIViewController {
     }()
     
     private lazy var controllers: [TGPageContentController] = {
-        guard let controllers = delegate?.controllersForPageController(self) else {
+        guard let controllers = delegate?.controllersForPageView(self) else {
             return []
         }
         controllers.forEach { vc in
@@ -74,15 +74,13 @@ class TGPageView: UIViewController {
     }()
     
     private lazy var pageTitleView: TGPageTitleView = {
-        let titles = self.delegate?.pageTitlesForPageController(self) ?? []
-        let titlePageViewH = self.delegate?.pageTitleViewHeightForPageController(self)
+        let titles = self.delegate?.pageTitlesForPageView(self) ?? []
+        let titlePageViewH = self.delegate?.pageTitleViewHeightForPageView(self)
         let titlePageView = TGPageTitleView(titles: titles)
         titlePageView.delegate = self
         return titlePageView
     }()
     
-    private weak var delegate: TGPageControllerDelegate?
-    private var selectIndex: Int = 0
     
     // MARK: - Properties
     private var canScroll: Bool = true {
@@ -109,20 +107,30 @@ class TGPageView: UIViewController {
             }
         }
     }
-    
-    
+    private var selectIndex: Int = 0
+    private var currentOffset: CGFloat = 0
+    private weak var parentController: UIViewController?
+    weak var delegate: TGPageDelegate?
 
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - 系统回调
+    init(parentController: UIViewController) {
+        self.parentController = parentController
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init coder")
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
         
-        // 设置代理为子类
-        self.delegate = self as? TGPageControllerDelegate
+        subviews.forEach { $0.removeFromSuperview()}
         setupUI()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 父 scrollView 不可以滚动时设置子视图滚动
         if scrollView.contentSize.height <= scrollView.frame.height {
@@ -134,7 +142,7 @@ class TGPageView: UIViewController {
 // MARK: - 设置 UI
 extension TGPageView {
     private func setupUI() {
-        view.addSubview(scrollView)
+        addSubview(scrollView)
         scrollView.addSubview(scrollContentView)
         scrollView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
@@ -144,27 +152,27 @@ extension TGPageView {
             make.width.equalToSuperview()
         }
         
-        if let topView = delegate?.topViewForPageController(self) {
+        if let topView = delegate?.topViewForPageView(self) {
             scrollContentView.addArrangedSubview(topView)
-            let topViewH = delegate?.topViewHeightForPageController(self) ?? 0
+            let topViewH = delegate?.topViewHeightForPageView(self) ?? 0
             topView.snp.makeConstraints { make in
                 make.height.equalTo(topViewH)
             }
         }
         
-        let titlePageViewH = self.delegate?.pageTitleViewHeightForPageController(self)
+        let titlePageViewH = self.delegate?.pageTitleViewHeightForPageView(self)
         scrollContentView.addArrangedSubview(pageTitleView)
         pageTitleView.snp.makeConstraints { make in
             make.height.equalTo(titlePageViewH!)
         }
         scrollContentView.addArrangedSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.height.equalTo(self.view).offset(-titlePageViewH!)
+            make.height.equalTo(self).offset(-titlePageViewH!)
         }
         
         controllers.forEach {
-            addChild($0)
-            $0.didMove(toParent: self)
+            self.parentController?.addChild($0)
+            $0.didMove(toParent: self.parentController)
         }
     }
 }
@@ -196,7 +204,8 @@ extension TGPageView: UIScrollViewDelegate {
         // 防止 collectionView 滚动的时候，scrollView 上下滚动
         if scrollView == self.collectionView {
             self.scrollView.isScrollEnabled = false
-        } else {
+            self.currentOffset = scrollView.contentOffset.x
+        } else if scrollView == self.scrollView {
             self.collectionView.isScrollEnabled = false
         }
     }
@@ -219,14 +228,37 @@ extension TGPageView: UIScrollViewDelegate {
                 canScroll = true
             }
             
+            var currentIndex = 0
+            var nextIndex = 0
+            var progress: CGFloat = 0
             
+            // 判断滚动方向
+            if scrollView.contentOffset.x > currentOffset {
+                // 向右滑动
+                currentIndex = Int(currentOffset / scrollView.bounds.width)
+                nextIndex = Int(ceil(scrollView.contentOffset.x / scrollView.bounds.width))
+                progress = (scrollView.contentOffset.x - currentOffset) / scrollView.bounds.width
+            } else {
+                // 向左滑动
+                currentIndex = Int(currentOffset / scrollView.bounds.width)
+                nextIndex = Int(floor(scrollView.contentOffset.x / scrollView.bounds.width))
+                progress = (currentOffset - scrollView.contentOffset.x) / scrollView.bounds.width
+            }
+            if progress > 1 {
+                progress = 1
+            }
+            print("currentIndex:\(currentIndex), nextIndex:\(nextIndex), progress:\(progress)")
+            if nextIndex >= 0 && nextIndex < controllers.count {
+                // 更新 titleView
+                pageTitleView.updateIndicatorView(from: currentIndex, to: nextIndex, progress: progress)
+            }
         }
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == self.collectionView {
             self.scrollView.isScrollEnabled = true
-        } else {
+        } else if scrollView == self.scrollView {
             self.collectionView.isScrollEnabled = true
         }
     }

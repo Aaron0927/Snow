@@ -8,34 +8,34 @@
 import UIKit
 
 // 定义容器视图协议
-protocol TGPageControllerDelegate where Self: UIViewController {
+protocol TGPageDelegate where Self: UIViewController {
     // 头部视图
-    func topViewForPageController(_ pageController: TGPageController) -> UIView?
+    func topViewForPageView(_ pageView: TGPageView) -> UIView?
     // 头部视图高度
-    func topViewHeightForPageController(_ pageController: TGPageController) -> CGFloat
+    func topViewHeightForPageView(_ pageView: TGPageView) -> CGFloat
     
     // 标题数组
-    func pageTitlesForPageController(_ pageController: TGPageController) -> [String]
+    func pageTitlesForPageView(_ pageView: TGPageView) -> [String]
     // 标题数组高度, 默认 50
-    func pageTitleViewHeightForPageController(_ pageController: TGPageController) -> CGFloat
+    func pageTitleViewHeightForPageView(_ pageView: TGPageView) -> CGFloat
     
     // 控制器数组
-    func controllersForPageController(_ pageController: TGPageController) -> [TGPageContentController]
+    func controllersForPageView(_ pageView: TGPageView) -> [TGPageContentController]
 }
 
-extension TGPageControllerDelegate {
+extension TGPageDelegate {
     // 头部视图
-    func topViewForPageController(_ pageController: TGPageController) -> UIView? {
+    func topViewForPageView(_ pageView: TGPageView) -> UIView? {
         return nil
     }
     // 头部视图高度
-    func topViewHeightForPageController(_ pageController: TGPageController) -> CGFloat {
+    func topViewHeightForPageView(_ pageView: TGPageView) -> CGFloat {
         return 0
     }
     
     // 标题数组高度
-    func pageTitleViewHeightForPageController(_ pageController: TGPageController) -> CGFloat {
-        return 50
+    func pageTitleViewHeightForPageView(_ pageView: TGPageView) -> CGFloat {
+        return 40
     }
 }
 

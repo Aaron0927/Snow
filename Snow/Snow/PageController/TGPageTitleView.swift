@@ -19,6 +19,7 @@ class TGPageTitleView: UIView {
     // MARK: - 懒加载属性
     private lazy var lineView: UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor(hex: "#333333")
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = kLineH / 2
         view.layer.masksToBounds = true
@@ -30,9 +31,12 @@ class TGPageTitleView: UIView {
     private var titleLabels: [UILabel] = []
     private var currentSelectIndex: Int = 0 {
         didSet {
-            delegate?.pageTitle(pageTitleView: self, didSelectAt: currentSelectIndex)
+            if !isScroll {
+                delegate?.pageTitle(pageTitleView: self, didSelectAt: currentSelectIndex)
+            }
         }
     }
+    private var isScroll: Bool = false // 用于判断点击还是滑动
     var delegate: TGPageTitleDelegate?
     
     // MARK: - 系统方法回调
@@ -87,18 +91,18 @@ extension TGPageTitleView {
             lineView.widthAnchor.constraint(equalToConstant: kLineW),
             lineView.heightAnchor.constraint(equalToConstant: kLineH),
             lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            lineView.centerXAnchor.constraint(equalTo: titleLabels[0].centerXAnchor)
         ])
         updateLineViewPosition(at: 0)
     }
     
-    private func updateLineViewPosition(at index: Int) {
+    func updateLineViewPosition(at index: Int) {
         let currentLabel = titleLabels[currentSelectIndex]
         let nextLabel = titleLabels[index]
         UIView.animate(withDuration: 0.25) {
             self.lineView.center.x = nextLabel.center.x
             currentLabel.font = .systemFont(ofSize: 15, weight: .regular)
-            nextLabel.font = .systemFont(ofSize: 15, weight: .medium)
+            nextLabel.font = .systemFont(ofSize: 15, weight: .bold)
         } completion: { _ in
             self.currentSelectIndex = index
         }
@@ -112,6 +116,26 @@ extension TGPageTitleView {
         if index == currentSelectIndex {
             return
         }
+        isScroll = false
         updateLineViewPosition(at: index)
+    }
+}
+
+// MARK: - Public
+extension TGPageTitleView {
+    func updateIndicatorView(from sourceIndex: Int, to targetIndex: Int, progress: CGFloat) {
+        isScroll = true
+        let currentLabel = titleLabels[sourceIndex]
+        let targetLabel = titleLabels[targetIndex]
+        
+        // 更新位置
+        let distance = targetLabel.center.x - currentLabel.center.x
+        self.lineView.center.x = currentLabel.center.x + distance * progress
+        
+        if progress == 1 {
+            currentLabel.font = .systemFont(ofSize: 15, weight: .regular)
+            targetLabel.font = .systemFont(ofSize: 15, weight: .bold)
+            self.currentSelectIndex = targetIndex
+        }
     }
 }

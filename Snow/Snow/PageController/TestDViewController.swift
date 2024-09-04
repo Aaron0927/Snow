@@ -32,17 +32,17 @@ class TestDViewController: UIViewController, TGPageContentController {
         setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        print("\(self) \(#function)")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        print("\(self) \(#function)")
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        print("\(self) \(#function)")
+//    }
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        
+//        print("\(self) \(#function)")
+//    }
 }
 
 // MARK: - 设置 UI
