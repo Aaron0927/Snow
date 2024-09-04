@@ -17,7 +17,7 @@ private class TGNestScrollView: UIScrollView, UIGestureRecognizerDelegate {
     }
 }
 
-class TGPageController: UIViewController {
+class TGPageView: UIViewController {
     // MARK: - 懒加载属性
     private lazy var scrollView: TGNestScrollView = {
         let scrollView = TGNestScrollView()
@@ -132,7 +132,7 @@ class TGPageController: UIViewController {
 }
 
 // MARK: - 设置 UI
-extension TGPageController {
+extension TGPageView {
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(scrollContentView)
@@ -170,7 +170,7 @@ extension TGPageController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension TGPageController: UICollectionViewDataSource {
+extension TGPageView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return controllers.count
     }
@@ -184,14 +184,14 @@ extension TGPageController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension TGPageController: UICollectionViewDelegateFlowLayout {
+extension TGPageView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }
 
 // MARK: - UIScrollView Delegate
-extension TGPageController: UIScrollViewDelegate {
+extension TGPageView: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         // 防止 collectionView 滚动的时候，scrollView 上下滚动
         if scrollView == self.collectionView {
@@ -218,6 +218,8 @@ extension TGPageController: UIScrollViewDelegate {
             if controllers[index].scrollView == nil {
                 canScroll = true
             }
+            
+            
         }
     }
     
@@ -231,8 +233,8 @@ extension TGPageController: UIScrollViewDelegate {
 }
 
 // MARK: - TGPageTitleViewDelegate
-extension TGPageController: TGPageTitleDelegate {
+extension TGPageView: TGPageTitleDelegate {
     func pageTitle(pageTitleView: TGPageTitleView, didSelectAt index: Int) {
-        collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(index), y: 0), animated: true)
+        collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(index), y: 0), animated: false)
     }
 }
