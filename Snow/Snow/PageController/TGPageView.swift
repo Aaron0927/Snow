@@ -77,7 +77,7 @@ class TGPageView: UIView {
         return collectionView
     }()
     
-    private lazy var controllers: [TGPageContentController] = {
+    private lazy var controllers: [TGPageContent] = {
         guard let controllers = delegate?.controllersForPageView(self) else {
             return []
         }
@@ -284,6 +284,13 @@ extension TGPageView: UIScrollViewDelegate {
             self.collectionView.isScrollEnabled = true
         }
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == self.collectionView {
+            let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+            pageTitleView.update(targetIndex: index)
+        }
+    }
 }
 
 // MARK: - TGPageTitleViewDelegate
@@ -291,5 +298,31 @@ extension TGPageView: TGPageTitleDelegate {
     func pageTitle(pageTitleView: TGPageTitleView, didSelectAt index: Int) {
         isForbidScrollDelegate = true
         collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(index), y: 0), animated: false)
+    }
+}
+
+
+class TGPageCollectionViewCell: UICollectionViewCell {
+    var childController: TGPageContent?
+    
+    func configure(with controller: TGPageContent) {
+        // 添加子控制器
+        childController = controller
+        contentView.addSubview(controller.view)
+        controller.view.frame = contentView.bounds
+        controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        // 通知子控制器
+        controller.didMove(toParent: nil)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // 在重用单元格时清理之前的子控制器
+        if let controller = childController {
+            controller.willMove(toParent: nil)
+            controller.view.removeFromSuperview()
+            controller.removeFromParent()
+            childController = nil
+        }
     }
 }

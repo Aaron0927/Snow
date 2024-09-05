@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TestEViewController: UIViewController, TGPageContentController {
+class TestEViewController: UIViewController, TGPageContent {
     var canScroll: Bool = false
     var scrollViewDidScroll: ((UIScrollView) -> Void)?
     var scrollView: UIScrollView?

@@ -29,7 +29,7 @@ class IndividualContainerController: BaseViewController {
     
 
     @IBAction func testAction(_ sender: Any) {
-        navigationController?.pushViewController(IndividualTestController(), animated: true)
+        navigationController?.pushViewController(IndividualStockController(), animated: true)
     }
 }
 

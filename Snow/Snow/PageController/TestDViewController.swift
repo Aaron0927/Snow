@@ -9,7 +9,7 @@ import UIKit
 
 private let kCellID: String = "kCellID"
 
-class TestDViewController: UIViewController, TGPageContentController {
+class TestDViewController: UIViewController, TGPageContent {
     // MARK: - 懒加载属性
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)

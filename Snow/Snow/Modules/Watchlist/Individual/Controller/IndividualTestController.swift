@@ -14,8 +14,8 @@ class IndividualTestController: UIViewController {
         return view
     }()
     
-    private lazy var controllers: [TGPageContentController] = {
-        var controllers = [TGPageContentController]()
+    private lazy var controllers: [TGPageContent] = {
+        var controllers = [TGPageContent]()
         for _ in 0..<2 {
             let vcd = TestDViewController()
             controllers.append(vcd)
@@ -36,7 +36,7 @@ class IndividualTestController: UIViewController {
 }
 
 extension IndividualTestController: TGPageDelegate {    
-    func controllersForPageView(_ pageController: TGPageView) -> [TGPageContentController] {
+    func controllersForPageView(_ pageController: TGPageView) -> [TGPageContent] {
         return controllers
     }
     

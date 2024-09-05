@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MarketsAViewController: UIViewController, TGPageContentController {
+class MarketsAViewController: UIViewController, TGPageContent {
     
     var canScroll: Bool = true
     var scrollViewDidScroll: ((UIScrollView) -> Void)? = nil
@@ -31,8 +31,8 @@ class MarketsAViewController: UIViewController, TGPageContentController {
 }
 
 extension MarketsAViewController: TGPageDelegate {
-    func controllersForPageView(_ pageController: TGPageView) -> [TGPageContentController] {
-        var controllers = [TGPageContentController]()
+    func controllersForPageView(_ pageController: TGPageView) -> [TGPageContent] {
+        var controllers = [TGPageContent]()
         for _ in 0..<5 {
             let vcd = TestDViewController()
             controllers.append(vcd)

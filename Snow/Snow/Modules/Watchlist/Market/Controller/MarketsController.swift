@@ -31,8 +31,8 @@ class MarketsController: UIViewController {
 }
 
 extension MarketsController: TGPageDelegate {
-    func controllersForPageView(_ pageView: TGPageView) -> [TGPageContentController] {
-        var controllers = [TGPageContentController]()
+    func controllersForPageView(_ pageView: TGPageView) -> [TGPageContent] {
+        var controllers = [TGPageContent]()
         controllers.append(MarketsAViewController())
         for _ in 0..<5 {
             let vcd = TestDViewController()

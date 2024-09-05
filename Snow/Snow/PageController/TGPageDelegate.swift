@@ -1,5 +1,5 @@
 //
-//  TGPageProtocol.swift
+//  TGPageDelegate.swift
 //  Snow
 //
 //  Created by kim on 2024/8/26.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-// 定义容器视图协议
-protocol TGPageDelegate where Self: UIViewController {
+// MARK: - 容器视图协议
+protocol TGPageDelegate: NSObjectProtocol {
     // 头部视图
     func topViewForPageView(_ pageView: TGPageView) -> UIView?
     // 头部视图高度
@@ -16,11 +16,11 @@ protocol TGPageDelegate where Self: UIViewController {
     
     // 标题数组
     func pageTitlesForPageView(_ pageView: TGPageView) -> [String]
-    // 标题数组高度, 默认 50
+    // 标题数组高度
     func pageTitleViewHeightForPageView(_ pageView: TGPageView) -> CGFloat
     
     // 控制器数组
-    func controllersForPageView(_ pageView: TGPageView) -> [TGPageContentController]
+    func controllersForPageView(_ pageView: TGPageView) -> [TGPageContent]
 }
 
 extension TGPageDelegate {
@@ -40,8 +40,8 @@ extension TGPageDelegate {
 }
 
 
-// 子视图应该实现的协议
-protocol TGPageContentController where Self: UIViewController {
+// MARK: - 子视图应该实现的协议
+protocol TGPageContent where Self: UIViewController {
     var canScroll: Bool { set get }
     var scrollView: UIScrollView? { get }
     

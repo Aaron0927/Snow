@@ -12,12 +12,14 @@ protocol TGPageTitleDelegate {
 }
 
 
-private let kLineW: CGFloat = 20
+private let kLineW: CGFloat = 10
 private let kLineH: CGFloat = 3
+private let kSelectColor: (CGFloat, CGFloat, CGFloat) = (51, 51, 51)
+private let kNormalColor: (CGFloat, CGFloat, CGFloat) = (102, 102, 102)
 
 class TGPageTitleView: UIView {
     // MARK: - 懒加载属性
-    private lazy var lineView: UIView = {
+    private lazy var indicatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hex: "#333333")
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -58,9 +60,9 @@ extension TGPageTitleView {
             label.translatesAutoresizingMaskIntoConstraints = false
             label.tag = index
             label.text = title
-            label.textColor = UIColor(hex: "#333333")
+            label.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
             label.textAlignment = .center
-            label.font = .systemFont(ofSize: 15)
+            label.font = .systemFont(ofSize: 16)
             addSubview(label)
             titleLabels.append(label)
             
@@ -79,12 +81,12 @@ extension TGPageTitleView {
             label.addGestureRecognizer(tapGesture)
         }
         
-        addSubview(lineView)
+        addSubview(indicatorView)
         NSLayoutConstraint.activate([
-            lineView.widthAnchor.constraint(equalToConstant: kLineW),
-            lineView.heightAnchor.constraint(equalToConstant: kLineH),
-            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            lineView.centerXAnchor.constraint(equalTo: titleLabels[0].centerXAnchor)
+            indicatorView.widthAnchor.constraint(equalToConstant: kLineW),
+            indicatorView.heightAnchor.constraint(equalToConstant: kLineH),
+            indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            indicatorView.centerXAnchor.constraint(equalTo: titleLabels[0].centerXAnchor)
         ])
         updateLineViewPosition(at: 0)
     }
@@ -94,9 +96,11 @@ extension TGPageTitleView {
         let nextLabel = titleLabels[index]
         
         UIView.animate(withDuration: 0.25) {
-            self.lineView.center.x = nextLabel.center.x
-            currentLabel.font = .systemFont(ofSize: 15, weight: .regular)
-            nextLabel.font = .systemFont(ofSize: 15, weight: .bold)
+            self.indicatorView.center.x = nextLabel.center.x
+            currentLabel.font = .systemFont(ofSize: 16, weight: .regular)
+            nextLabel.font = .systemFont(ofSize: 16, weight: .bold)
+            currentLabel.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
+            nextLabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2)
         }
         
         currentSelectIndex = index
@@ -117,17 +121,37 @@ extension TGPageTitleView {
 
 // MARK: - Public
 extension TGPageTitleView {
+    // 滑动过程中更新
     func updateIndicatorView(from sourceIndex: Int, to targetIndex: Int, progress: CGFloat) {
+        if sourceIndex == targetIndex {
+            return
+        }
         let currentLabel = titleLabels[sourceIndex]
         let targetLabel = titleLabels[targetIndex]
         
         // 更新位置
         let distance = targetLabel.center.x - currentLabel.center.x
-        self.lineView.center.x = currentLabel.center.x + distance * progress
+        self.indicatorView.center.x = currentLabel.center.x + distance * progress
         
-//        currentLabel.font = .systemFont(ofSize: 15, weight: .regular)
-//        targetLabel.font = .systemFont(ofSize: 15, weight: .bold)
-        // 设置时机？
-//        currentSelectIndex = targetIndex
+        // 更新颜色
+        // 颜色变化范围
+        let colorDelta = (kSelectColor.0 - kNormalColor.0, kSelectColor.1 - kNormalColor.1, kSelectColor.2 - kNormalColor.2)
+        // souceLabel 颜色变化
+        currentLabel.textColor = UIColor(r: kSelectColor.0 - colorDelta.0 * progress, g: kSelectColor.1 - colorDelta.1 * progress, b: kSelectColor.2 - colorDelta.2 * progress)
+        // targetLabel 颜色变化
+        targetLabel.textColor = UIColor(r: kNormalColor.0 + colorDelta.0 * progress, g: kNormalColor.1 + colorDelta.1 * progress, b: kNormalColor.2 + colorDelta.2 * progress)
+    }
+    
+    // 滑动结束后更新
+    func update(targetIndex index: Int) {
+        let currentLabel = titleLabels[currentSelectIndex]
+        let nextLabel = titleLabels[index]
+        
+        currentLabel.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
+        nextLabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2)
+        currentLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        nextLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        
+        currentSelectIndex = index
     }
 }
