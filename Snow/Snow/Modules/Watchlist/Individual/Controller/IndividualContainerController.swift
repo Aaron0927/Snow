@@ -20,6 +20,18 @@ class IndividualContainerController: BaseViewController {
         return controller
     }()
     
+    private lazy var pageTitleView: TGPageTitleView = {
+        let titleView = TGPageTitleView(titles: ["自选", "行情", "市场"])
+        titleView.showIndicator = false
+        return titleView
+    }()
+    
+    private lazy var pageView: TGPageView = {
+        let pageView = TGPageView(parentController: self)
+        pageView.delegate = self
+        return pageView
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +49,26 @@ class IndividualContainerController: BaseViewController {
 extension IndividualContainerController {
     private func setupUI() {
         addNavBar(.white)
+        navigationItem.titleView = pageTitleView
         
-        addChild(marketController)
-        view.addSubview(marketController.view)
-        marketController.didMove(toParent: self)
-        marketController.view.snp.makeConstraints { make in
+        view.addSubview(pageView)
+        pageView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
         }
+    }
+}
+
+extension IndividualContainerController: TGPageDelegate {    
+    func pageTitleViewForPageView(_ pageView: TGPageView) -> TGPageTitleView? {
+        return pageTitleView
+    }
+    
+    func controllersForPageView(_ pageView: TGPageView) -> [TGPageContent] {
+        var arrs = [TGPageContent]()
+        for _ in 0..<3 {
+            let vc = MarketsAViewController()
+            arrs.append(vc)
+        }
+        return arrs
     }
 }

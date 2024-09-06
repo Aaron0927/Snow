@@ -95,13 +95,7 @@ class TGPageView: UIView {
         return controllers
     }()
     
-    private lazy var pageTitleView: TGPageTitleView = {
-        let titles = self.delegate?.pageTitlesForPageView(self) ?? []
-        let titlePageViewH = self.delegate?.pageTitleViewHeightForPageView(self)
-        let titlePageView = TGPageTitleView(titles: titles)
-        titlePageView.delegate = self
-        return titlePageView
-    }()
+    private var pageTitleView: TGPageTitleView?
     
     
     // MARK: - Properties
@@ -183,14 +177,24 @@ extension TGPageView {
             }
         }
         
-        let titlePageViewH = self.delegate?.pageTitleViewHeightForPageView(self)
-        scrollContentView.addArrangedSubview(pageTitleView)
-        pageTitleView.snp.makeConstraints { make in
-            make.height.equalTo(titlePageViewH!)
+        // 创建 pageTitleView
+        pageTitleView = self.delegate?.pageTitleViewForPageView(self)
+        if pageTitleView == nil, let titles = self.delegate?.pageTitlesForPageView(self)  {
+            pageTitleView = TGPageTitleView(titles: titles)
         }
+        pageTitleView?.delegate = self
+        var titlePageViewH: CGFloat = 0
+        if let pageTitleView = pageTitleView {
+            titlePageViewH = self.delegate?.pageTitleViewHeightForPageView(self) ?? 40
+            scrollContentView.addArrangedSubview(pageTitleView)
+            pageTitleView.snp.makeConstraints { make in
+                make.height.equalTo(titlePageViewH)
+            }
+        }
+
         scrollContentView.addArrangedSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.height.equalTo(self).offset(-titlePageViewH!)
+            make.height.equalTo(self).offset(-titlePageViewH)
         }
         
         controllers.forEach {
@@ -236,7 +240,8 @@ extension TGPageView: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
-            let maxOffset: CGFloat = pageTitleView.frame.minY
+            // TODO: 这里视图布局不确定，所以最大偏移量也不确定
+            let maxOffset: CGFloat = pageTitleView?.frame.minY ?? 0
             if !canScroll {
                 scrollView.contentOffset = CGPoint(x: 0, y: maxOffset)
             } else if scrollView.contentOffset.y >= maxOffset {
@@ -271,9 +276,8 @@ extension TGPageView: UIScrollViewDelegate {
                 targetIndex = max(0, sourceIndex - 1)
                 progress = (CGFloat(sourceIndex) * scrollView.frame.width - currentOffsetX) / scrollView.bounds.width
             }
-            print("sourceIndex:\(sourceIndex), targetIndex:\(targetIndex), progress:\(progress)")
             // 更新 titleView
-            pageTitleView.updateIndicatorView(from: sourceIndex, to: targetIndex, progress: progress)
+            pageTitleView?.updateIndicatorView(from: sourceIndex, to: targetIndex, progress: progress)
         }
     }
     
@@ -288,7 +292,7 @@ extension TGPageView: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == self.collectionView {
             let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
-            pageTitleView.update(targetIndex: index)
+            pageTitleView?.update(targetIndex: index)
         }
     }
 }

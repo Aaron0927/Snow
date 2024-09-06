@@ -14,10 +14,12 @@ protocol TGPageDelegate: NSObjectProtocol {
     // 头部视图高度
     func topViewHeightForPageView(_ pageView: TGPageView) -> CGFloat
     
-    // 标题数组
+    // 标题数组 -> 设置标题数据，就使用内部布局
     func pageTitlesForPageView(_ pageView: TGPageView) -> [String]
     // 标题数组高度
     func pageTitleViewHeightForPageView(_ pageView: TGPageView) -> CGFloat
+    // 标题视图 -> 使用自定义布局
+    func pageTitleViewForPageView(_ pageView: TGPageView) -> TGPageTitleView?
     
     // 控制器数组
     func controllersForPageView(_ pageView: TGPageView) -> [TGPageContent]
@@ -33,9 +35,17 @@ extension TGPageDelegate {
         return 0
     }
     
+    // 标题数组 -> 设置标题数据，就使用内部布局
+    func pageTitlesForPageView(_ pageView: TGPageView) -> [String] {
+        return []
+    }
     // 标题数组高度
     func pageTitleViewHeightForPageView(_ pageView: TGPageView) -> CGFloat {
         return 40
+    }
+    // 标题视图 -> 使用自定义布局
+    func pageTitleViewForPageView(_ pageView: TGPageView) -> TGPageTitleView? {
+        return nil
     }
 }
 

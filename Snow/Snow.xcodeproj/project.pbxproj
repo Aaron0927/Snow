@@ -30,7 +30,6 @@
 		3B96E1372C8939E800C17AE5 /* TGCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B96E1342C8939DB00C17AE5 /* TGCoreKit.framework */; };
 		3B96E1382C8939E800C17AE5 /* TGCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B96E1342C8939DB00C17AE5 /* TGCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B98BDC42C58F20C000DF638 /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */; };
-		3B98BDDB2C5A2F42000DF638 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B98BDDA2C5A2F42000DF638 /* UIColor+Extension.swift */; };
 		3B98BE072C5B61EE000DF638 /* tabbar_me_night.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B98BDFE2C5B61ED000DF638 /* tabbar_me_night.json */; };
 		3B98BE082C5B61EE000DF638 /* tabbar_fund_day.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B98BDFF2C5B61ED000DF638 /* tabbar_fund_day.json */; };
 		3B98BE092C5B61EE000DF638 /* tabbar_owns_night.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B98BE002C5B61ED000DF638 /* tabbar_owns_night.json */; };
@@ -121,7 +120,6 @@
 		3B8231C62C51DBBC00425B7D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		3B96E12E2C8939DB00C17AE5 /* TGCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TGCoreKit.xcodeproj; path = ../../TGCoreKit/TGCoreKit.xcodeproj; sourceTree = "<group>"; };
 		3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
-		3B98BDDA2C5A2F42000DF638 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3B98BDFE2C5B61ED000DF638 /* tabbar_me_night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tabbar_me_night.json; sourceTree = "<group>"; };
 		3B98BDFF2C5B61ED000DF638 /* tabbar_fund_day.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tabbar_fund_day.json; sourceTree = "<group>"; };
 		3B98BE002C5B61ED000DF638 /* tabbar_owns_night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tabbar_owns_night.json; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 				3BB5866A2C466D9E00378F66 /* UIImage+Extensions.swift */,
 				3BB5866C2C4679C600378F66 /* UIViewController+Extensions.swift */,
 				3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */,
-				3B98BDDA2C5A2F42000DF638 /* UIColor+Extension.swift */,
 				3B24D5F92C5B821400CB3008 /* Common.swift */,
 			);
 			path = Tools;
@@ -642,7 +639,6 @@
 				3BE087422C85C02600577796 /* ListViewController.swift in Sources */,
 				3B24D5F62C5B794400CB3008 /* HomeNavigationBar.swift in Sources */,
 				3BE6EA952C86EB80000C00C7 /* MarketsController.swift in Sources */,
-				3B98BDDB2C5A2F42000DF638 /* UIColor+Extension.swift in Sources */,
 				3BACDC672C522F1500D2C43D /* Observable.swift in Sources */,
 				3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */,
 				3BB583452C464D7500378F66 /* BaseTabBarController.swift in Sources */,
