@@ -34,6 +34,15 @@
                                     <action selector="testAction:" destination="k7I-I4-P0U" eventType="touchUpInside" id="GO5-jt-qfB"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U2N-Yg-Aq7">
+                                <rect key="frame" x="0.0" y="551" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="55d-Ze-sxd"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="685-uo-RFL"/>
+                                    <barButtonItem title="Item" id="AcT-FI-ciQ"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nog-cV-qVo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

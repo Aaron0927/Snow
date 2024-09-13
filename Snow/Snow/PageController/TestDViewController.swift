@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TGCoreKit
 
 private let kCellID: String = "kCellID"
 

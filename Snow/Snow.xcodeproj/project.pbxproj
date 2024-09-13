@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B1D33AD2C7C6E2300E248AA /* TestDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D33AC2C7C6E2300E248AA /* TestDViewController.swift */; };
-		3B1D33AF2C7C711A00E248AA /* TGPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D33AE2C7C711A00E248AA /* TGPageDelegate.swift */; };
 		3B24D5EF2C5B708B00CB3008 /* DIN-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5EC2C5B708B00CB3008 /* DIN-Medium.otf */; };
 		3B24D5F02C5B708B00CB3008 /* DIN-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5ED2C5B708B00CB3008 /* DIN-Bold.otf */; };
 		3B24D5F12C5B708B00CB3008 /* DIN-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B24D5EE2C5B708B00CB3008 /* DIN-Regular.otf */; };
@@ -21,12 +20,11 @@
 		3B2BACCA2C72F61400CCA3F2 /* IndividualController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */; };
 		3B2BACCD2C72F67B00CCA3F2 /* IndividualViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2BACCC2C72F67A00CCA3F2 /* IndividualViewModel.swift */; };
 		3B2FCB102C731AD400928702 /* StockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FCB0F2C731AD400928702 /* StockData.swift */; };
-		3B75154C2C81B58300270817 /* TGPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B75154B2C81B58300270817 /* TGPageTitleView.swift */; };
 		3B7B45B72C7C1A5D0053A4B6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */; };
 		3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45C62C7C1B7F0053A4B6 /* SnowHeader.swift */; };
-		3B7B45CA2C7C1C8B0053A4B6 /* TGPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45C92C7C1C8B0053A4B6 /* TGPageView.swift */; };
 		3B7B45CE2C7C1EF40053A4B6 /* IndividualContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */; };
 		3B8231C72C51DBBC00425B7D /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8231C62C51DBBC00425B7D /* HomeTableViewCell.swift */; };
+		3B8EC55B2C90210000D64E77 /* MarketsIconGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EC55A2C90210000D64E77 /* MarketsIconGroupView.swift */; };
 		3B96E1372C8939E800C17AE5 /* TGCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B96E1342C8939DB00C17AE5 /* TGCoreKit.framework */; };
 		3B96E1382C8939E800C17AE5 /* TGCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B96E1342C8939DB00C17AE5 /* TGCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B98BDC42C58F20C000DF638 /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */; };
@@ -48,6 +46,7 @@
 		3BACDC602C5224EE00D2C43D /* HomeFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACDC5F2C5224EE00D2C43D /* HomeFlowModel.swift */; };
 		3BACDC672C522F1500D2C43D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACDC662C522F1500D2C43D /* Observable.swift */; };
 		3BACDC692C52302C00D2C43D /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACDC682C52302C00D2C43D /* HomeCellViewModel.swift */; };
+		3BAF45D72C903CF6002064D9 /* MarketsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF45D62C903CF6002064D9 /* MarketsSectionHeaderView.swift */; };
 		3BB580352C46017200378F66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB580342C46017200378F66 /* AppDelegate.swift */; };
 		3BB580372C46017200378F66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB580362C46017200378F66 /* SceneDelegate.swift */; };
 		3BB5803C2C46017200378F66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BB5803A2C46017200378F66 /* Main.storyboard */; };
@@ -59,6 +58,9 @@
 		3BB583452C464D7500378F66 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB583442C464D7400378F66 /* BaseTabBarController.swift */; };
 		3BB5866B2C466D9E00378F66 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB5866A2C466D9E00378F66 /* UIImage+Extensions.swift */; };
 		3BB5866D2C4679C600378F66 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB5866C2C4679C600378F66 /* UIViewController+Extensions.swift */; };
+		3BC081FB2C8FE6C5005BCB71 /* MarketsHSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC081FA2C8FE6C5005BCB71 /* MarketsHSViewController.swift */; };
+		3BC082002C8FE7C2005BCB71 /* MarketsBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC081FF2C8FE7C2005BCB71 /* MarketsBlockView.swift */; };
+		3BC082022C8FEB02005BCB71 /* MarketsBlockGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC082012C8FEB02005BCB71 /* MarketsBlockGroupView.swift */; };
 		3BE0873B2C85AFC100577796 /* IndividualStockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0873A2C85AFC100577796 /* IndividualStockController.swift */; };
 		3BE087422C85C02600577796 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0873F2C85C02600577796 /* ListViewController.swift */; };
 		3BE6EA952C86EB80000C00C7 /* MarketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EA942C86EB80000C00C7 /* MarketsController.swift */; };
@@ -99,7 +101,6 @@
 
 /* Begin PBXFileReference section */
 		3B1D33AC2C7C6E2300E248AA /* TestDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDViewController.swift; sourceTree = "<group>"; };
-		3B1D33AE2C7C711A00E248AA /* TGPageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageDelegate.swift; sourceTree = "<group>"; };
 		3B24D5EC2C5B708B00CB3008 /* DIN-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Medium.otf"; sourceTree = "<group>"; };
 		3B24D5ED2C5B708B00CB3008 /* DIN-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Bold.otf"; sourceTree = "<group>"; };
 		3B24D5EE2C5B708B00CB3008 /* DIN-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Regular.otf"; sourceTree = "<group>"; };
@@ -112,12 +113,11 @@
 		3B2BACC92C72F61300CCA3F2 /* IndividualController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualController.swift; sourceTree = "<group>"; };
 		3B2BACCC2C72F67A00CCA3F2 /* IndividualViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualViewModel.swift; sourceTree = "<group>"; };
 		3B2FCB0F2C731AD400928702 /* StockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockData.swift; sourceTree = "<group>"; };
-		3B75154B2C81B58300270817 /* TGPageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageTitleView.swift; sourceTree = "<group>"; };
 		3B7B45B62C7C1A5D0053A4B6 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3B7B45C62C7C1B7F0053A4B6 /* SnowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowHeader.swift; sourceTree = "<group>"; };
-		3B7B45C92C7C1C8B0053A4B6 /* TGPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPageView.swift; sourceTree = "<group>"; };
 		3B7B45CD2C7C1EF40053A4B6 /* IndividualContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualContainerController.swift; sourceTree = "<group>"; };
 		3B8231C62C51DBBC00425B7D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		3B8EC55A2C90210000D64E77 /* MarketsIconGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsIconGroupView.swift; sourceTree = "<group>"; };
 		3B96E12E2C8939DB00C17AE5 /* TGCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TGCoreKit.xcodeproj; path = ../../TGCoreKit/TGCoreKit.xcodeproj; sourceTree = "<group>"; };
 		3B98BDC32C58F20C000DF638 /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
 		3B98BDFE2C5B61ED000DF638 /* tabbar_me_night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tabbar_me_night.json; sourceTree = "<group>"; };
@@ -138,6 +138,7 @@
 		3BACDC5F2C5224EE00D2C43D /* HomeFlowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowModel.swift; sourceTree = "<group>"; };
 		3BACDC662C522F1500D2C43D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		3BACDC682C52302C00D2C43D /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		3BAF45D62C903CF6002064D9 /* MarketsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsSectionHeaderView.swift; sourceTree = "<group>"; };
 		3BB580312C46017200378F66 /* Snow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BB580342C46017200378F66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BB580362C46017200378F66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +152,9 @@
 		3BB583442C464D7400378F66 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		3BB5866A2C466D9E00378F66 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		3BB5866C2C4679C600378F66 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		3BC081FA2C8FE6C5005BCB71 /* MarketsHSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsHSViewController.swift; sourceTree = "<group>"; };
+		3BC081FF2C8FE7C2005BCB71 /* MarketsBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsBlockView.swift; sourceTree = "<group>"; };
+		3BC082012C8FEB02005BCB71 /* MarketsBlockGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsBlockGroupView.swift; sourceTree = "<group>"; };
 		3BE0873A2C85AFC100577796 /* IndividualStockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualStockController.swift; sourceTree = "<group>"; };
 		3BE0873F2C85C02600577796 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3BE6EA942C86EB80000C00C7 /* MarketsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsController.swift; sourceTree = "<group>"; };
@@ -266,9 +270,6 @@
 		3BA678022C7EFD23000A505E /* PageController */ = {
 			isa = PBXGroup;
 			children = (
-				3B7B45C92C7C1C8B0053A4B6 /* TGPageView.swift */,
-				3B75154B2C81B58300270817 /* TGPageTitleView.swift */,
-				3B1D33AE2C7C711A00E248AA /* TGPageDelegate.swift */,
 				3B1D33AC2C7C6E2300E248AA /* TestDViewController.swift */,
 				3BA678052C7EFECB000A505E /* TestEViewController.swift */,
 			);
@@ -446,9 +447,21 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		3BC081FE2C8FE79B005BCB71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BC081FF2C8FE7C2005BCB71 /* MarketsBlockView.swift */,
+				3BC082012C8FEB02005BCB71 /* MarketsBlockGroupView.swift */,
+				3B8EC55A2C90210000D64E77 /* MarketsIconGroupView.swift */,
+				3BAF45D62C903CF6002064D9 /* MarketsSectionHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3BE6EA922C86EB66000C00C7 /* Market */ = {
 			isa = PBXGroup;
 			children = (
+				3BC081FE2C8FE79B005BCB71 /* Views */,
 				3BE6EA932C86EB6D000C00C7 /* Controller */,
 			);
 			path = Market;
@@ -459,6 +472,7 @@
 			children = (
 				3BE6EA942C86EB80000C00C7 /* MarketsController.swift */,
 				3BE6EA962C86FB1F000C00C7 /* MarketsAViewController.swift */,
+				3BC081FA2C8FE6C5005BCB71 /* MarketsHSViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -637,17 +651,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BE087422C85C02600577796 /* ListViewController.swift in Sources */,
+				3BAF45D72C903CF6002064D9 /* MarketsSectionHeaderView.swift in Sources */,
 				3B24D5F62C5B794400CB3008 /* HomeNavigationBar.swift in Sources */,
 				3BE6EA952C86EB80000C00C7 /* MarketsController.swift in Sources */,
 				3BACDC672C522F1500D2C43D /* Observable.swift in Sources */,
 				3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */,
 				3BB583452C464D7500378F66 /* BaseTabBarController.swift in Sources */,
-				3B75154C2C81B58300270817 /* TGPageTitleView.swift in Sources */,
 				3BB5812A2C4610DC00378F66 /* BaseViewController.swift in Sources */,
 				3B2FCB102C731AD400928702 /* StockData.swift in Sources */,
+				3BC082022C8FEB02005BCB71 /* MarketsBlockGroupView.swift in Sources */,
 				3BACDC592C51FDCB00D2C43D /* NetworkTool.swift in Sources */,
+				3BC081FB2C8FE6C5005BCB71 /* MarketsHSViewController.swift in Sources */,
 				3B98BDC42C58F20C000DF638 /* UITabBar+Extension.swift in Sources */,
-				3B7B45CA2C7C1C8B0053A4B6 /* TGPageView.swift in Sources */,
 				3BA678082C7F0F4A000A505E /* IndividualTestController.swift in Sources */,
 				3B8231C72C51DBBC00425B7D /* HomeTableViewCell.swift in Sources */,
 				3BB5866D2C4679C600378F66 /* UIViewController+Extensions.swift in Sources */,
@@ -658,14 +673,15 @@
 				3BACDC5E2C521D8400D2C43D /* HomeService.swift in Sources */,
 				3BB581282C460FFF00378F66 /* BaseNavigationController.swift in Sources */,
 				3BA678062C7EFECB000A505E /* TestEViewController.swift in Sources */,
+				3BC082002C8FE7C2005BCB71 /* MarketsBlockView.swift in Sources */,
 				3BE0873B2C85AFC100577796 /* IndividualStockController.swift in Sources */,
 				3BB580352C46017200378F66 /* AppDelegate.swift in Sources */,
 				3BE6EA972C86FB1F000C00C7 /* MarketsAViewController.swift in Sources */,
 				3B1D33AD2C7C6E2300E248AA /* TestDViewController.swift in Sources */,
 				3BACDC602C5224EE00D2C43D /* HomeFlowModel.swift in Sources */,
-				3B1D33AF2C7C711A00E248AA /* TGPageDelegate.swift in Sources */,
 				3BB580372C46017200378F66 /* SceneDelegate.swift in Sources */,
 				3B7B45B72C7C1A5D0053A4B6 /* CustomTextField.swift in Sources */,
+				3B8EC55B2C90210000D64E77 /* MarketsIconGroupView.swift in Sources */,
 				3BB5866B2C466D9E00378F66 /* UIImage+Extensions.swift in Sources */,
 				3BB581252C460FCA00378F66 /* HomeViewController.swift in Sources */,
 				3B7B45CE2C7C1EF40053A4B6 /* IndividualContainerController.swift in Sources */,

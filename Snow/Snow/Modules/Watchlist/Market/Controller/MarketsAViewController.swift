@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TGCoreKit
 
 class MarketsAViewController: UIViewController, TGPageContent {
     
@@ -33,7 +34,8 @@ class MarketsAViewController: UIViewController, TGPageContent {
 extension MarketsAViewController: TGPageDelegate {
     func controllersForPageView(_ pageController: TGPageView) -> [TGPageContent] {
         var controllers = [TGPageContent]()
-        for _ in 0..<5 {
+        controllers.append(MarketsHSViewController())
+        for _ in 0..<4 {
             let vcd = TestDViewController()
             controllers.append(vcd)
         }

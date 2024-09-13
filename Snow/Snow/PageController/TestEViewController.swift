@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TGCoreKit
 
 class TestEViewController: UIViewController, TGPageContent {
     var canScroll: Bool = false

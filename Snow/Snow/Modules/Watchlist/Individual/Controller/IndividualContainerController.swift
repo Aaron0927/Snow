@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TGCoreKit
 
 class IndividualContainerController: BaseViewController {
     // MARK: - 懒加载属性
@@ -21,8 +22,13 @@ class IndividualContainerController: BaseViewController {
     }()
     
     private lazy var pageTitleView: TGPageTitleView = {
-        let titleView = TGPageTitleView(titles: ["自选", "行情", "市场"])
+        let titleView = TGPageTitleView(titles: ["机构排行", "股票排行", "期权排行"])
         titleView.showIndicator = false
+        titleView.isScrollEnable = false
+        titleView.itemNormalFont = .systemFont(ofSize: 16)
+        titleView.itemNormalColor = UIColor(hex: "#A6A9B6")
+        titleView.itemSelectFont = .systemFont(ofSize: 16, weight: .medium)
+        titleView.itemSelectColor = UIColor(hex: "#333333")
         return titleView
     }()
     
