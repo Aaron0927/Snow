@@ -65,6 +65,11 @@
 		3BE087422C85C02600577796 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0873F2C85C02600577796 /* ListViewController.swift */; };
 		3BE6EA952C86EB80000C00C7 /* MarketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EA942C86EB80000C00C7 /* MarketsController.swift */; };
 		3BE6EA972C86FB1F000C00C7 /* MarketsAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EA962C86FB1F000C00C7 /* MarketsAViewController.swift */; };
+		3BF77FB22CA3F2490064B17A /* MarketsOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF77FB12CA3F2490064B17A /* MarketsOverviewView.swift */; };
+		3BF77FB62CA3F9960064B17A /* HotProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF77FB52CA3F9960064B17A /* HotProgressView.swift */; };
+		3BF77FBA2CA4FE350064B17A /* ComparisonBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF77FB92CA4FE350064B17A /* ComparisonBarView.swift */; };
+		3BF77FBE2CA5493B0064B17A /* MarketChangesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF77FBD2CA5493B0064B17A /* MarketChangesView.swift */; };
+		3BF77FC12CA6921B0064B17A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF77FC02CA6921B0064B17A /* UIView+Extension.swift */; };
 		6566170A41DC5596EBF51F40 /* Pods_Snow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF99AA0EAA4AC3D4EBB86A5 /* Pods_Snow.framework */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +164,11 @@
 		3BE0873F2C85C02600577796 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3BE6EA942C86EB80000C00C7 /* MarketsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsController.swift; sourceTree = "<group>"; };
 		3BE6EA962C86FB1F000C00C7 /* MarketsAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsAViewController.swift; sourceTree = "<group>"; };
+		3BF77FB12CA3F2490064B17A /* MarketsOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsOverviewView.swift; sourceTree = "<group>"; };
+		3BF77FB52CA3F9960064B17A /* HotProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotProgressView.swift; sourceTree = "<group>"; };
+		3BF77FB92CA4FE350064B17A /* ComparisonBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonBarView.swift; sourceTree = "<group>"; };
+		3BF77FBD2CA5493B0064B17A /* MarketChangesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketChangesView.swift; sourceTree = "<group>"; };
+		3BF77FC02CA6921B0064B17A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		6AF99AA0EAA4AC3D4EBB86A5 /* Pods_Snow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934FF5F750C686C8F05C7EE8 /* Pods-Snow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snow.release.xcconfig"; path = "Target Support Files/Pods-Snow/Pods-Snow.release.xcconfig"; sourceTree = "<group>"; };
 		AC1224AA378DC101E43323AA /* Pods-Snow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snow.debug.xcconfig"; path = "Target Support Files/Pods-Snow/Pods-Snow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -329,6 +339,7 @@
 		3BB580332C46017200378F66 /* Snow */ = {
 			isa = PBXGroup;
 			children = (
+				3BF77FBF2CA692030064B17A /* Extension */,
 				3BA678022C7EFD23000A505E /* PageController */,
 				3B98BDA82C574410000DF638 /* Resources */,
 				3BACDC542C51F27900D2C43D /* Network */,
@@ -454,6 +465,10 @@
 				3BC082012C8FEB02005BCB71 /* MarketsBlockGroupView.swift */,
 				3B8EC55A2C90210000D64E77 /* MarketsIconGroupView.swift */,
 				3BAF45D62C903CF6002064D9 /* MarketsSectionHeaderView.swift */,
+				3BF77FB12CA3F2490064B17A /* MarketsOverviewView.swift */,
+				3BF77FBD2CA5493B0064B17A /* MarketChangesView.swift */,
+				3BF77FB52CA3F9960064B17A /* HotProgressView.swift */,
+				3BF77FB92CA4FE350064B17A /* ComparisonBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -475,6 +490,14 @@
 				3BC081FA2C8FE6C5005BCB71 /* MarketsHSViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		3BF77FBF2CA692030064B17A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3BF77FC02CA6921B0064B17A /* UIView+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		9C5BD471113397DCD485D27D /* Pods */ = {
@@ -652,14 +675,17 @@
 			files = (
 				3BE087422C85C02600577796 /* ListViewController.swift in Sources */,
 				3BAF45D72C903CF6002064D9 /* MarketsSectionHeaderView.swift in Sources */,
+				3BF77FBE2CA5493B0064B17A /* MarketChangesView.swift in Sources */,
 				3B24D5F62C5B794400CB3008 /* HomeNavigationBar.swift in Sources */,
 				3BE6EA952C86EB80000C00C7 /* MarketsController.swift in Sources */,
 				3BACDC672C522F1500D2C43D /* Observable.swift in Sources */,
+				3BF77FBA2CA4FE350064B17A /* ComparisonBarView.swift in Sources */,
 				3B7B45C72C7C1B7F0053A4B6 /* SnowHeader.swift in Sources */,
 				3BB583452C464D7500378F66 /* BaseTabBarController.swift in Sources */,
 				3BB5812A2C4610DC00378F66 /* BaseViewController.swift in Sources */,
 				3B2FCB102C731AD400928702 /* StockData.swift in Sources */,
 				3BC082022C8FEB02005BCB71 /* MarketsBlockGroupView.swift in Sources */,
+				3BF77FC12CA6921B0064B17A /* UIView+Extension.swift in Sources */,
 				3BACDC592C51FDCB00D2C43D /* NetworkTool.swift in Sources */,
 				3BC081FB2C8FE6C5005BCB71 /* MarketsHSViewController.swift in Sources */,
 				3B98BDC42C58F20C000DF638 /* UITabBar+Extension.swift in Sources */,
@@ -669,6 +695,7 @@
 				3BACDC692C52302C00D2C43D /* HomeCellViewModel.swift in Sources */,
 				3B2BACCD2C72F67B00CCA3F2 /* IndividualViewModel.swift in Sources */,
 				3B2BACCA2C72F61400CCA3F2 /* IndividualController.swift in Sources */,
+				3BF77FB22CA3F2490064B17A /* MarketsOverviewView.swift in Sources */,
 				3B24D5FA2C5B821400CB3008 /* Common.swift in Sources */,
 				3BACDC5E2C521D8400D2C43D /* HomeService.swift in Sources */,
 				3BB581282C460FFF00378F66 /* BaseNavigationController.swift in Sources */,
@@ -686,6 +713,7 @@
 				3BB581252C460FCA00378F66 /* HomeViewController.swift in Sources */,
 				3B7B45CE2C7C1EF40053A4B6 /* IndividualContainerController.swift in Sources */,
 				3BACDC5B2C521D4700D2C43D /* HomeViewModel.swift in Sources */,
+				3BF77FB62CA3F9960064B17A /* HotProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

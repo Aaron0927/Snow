@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Charts
+import DGCharts
 import TGCoreKit
 
 // 个股页面控制器
