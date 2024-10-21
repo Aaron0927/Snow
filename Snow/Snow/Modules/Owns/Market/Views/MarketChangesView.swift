@@ -187,8 +187,8 @@ class MarketChangesView: UIView {
         olineView.addSubview(rightBottomLabel)
         
         headerView.snp.makeConstraints { make in
-            make.left.equalTo(12)
-            make.right.equalTo(-12)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
             make.top.equalTo(10)
             make.height.equalTo(40)
         }

@@ -6,19 +6,13 @@
 //
 
 import UIKit
-import TGCoreKit
 
 private let kCellID = "MarketRankContentCellID"
 
-class MarketRankContentController: UIViewController, TGPageContent {
+class MarketRankContentController: UIViewController, PageContent {
     // MARK: - TGPageContent
-    var canScroll: Bool = false {
-        didSet {
-            print("what!!")
-            
-        }
-    }
-    var scrollViewDidScroll: ((UIScrollView) -> Void)? = nil
+    var canScroll: Bool = false
+//    var scrollViewDidScroll: ((UIScrollView) -> Void)? = nil
     var scrollView: UIScrollView? { tableView }
     
     // MARK: - 懒加载数据
@@ -65,7 +59,7 @@ extension MarketRankContentController {
 // MARK: - UITableView DataSource
 extension MarketRankContentController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,11 +72,5 @@ extension MarketRankContentController: UITableViewDataSource {
 extension MarketRankContentController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let scrollViewDidScroll = scrollViewDidScroll {
-            scrollViewDidScroll(scrollView)
-        }
     }
 }

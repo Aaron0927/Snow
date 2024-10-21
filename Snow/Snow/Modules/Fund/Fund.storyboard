@@ -9,27 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Fund View Controller-->
         <scene sceneID="A9L-M0-b7T">
             <objects>
-                <viewController id="eP8-WX-O9y" sceneMemberID="viewController">
+                <viewController id="eP8-WX-O9y" customClass="FundViewController" customModule="Snow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d3j-5X-Tmg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="V1n-X5-Cpi">
-                                <rect key="frame" x="-25" y="-68" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <viewLayoutGuide key="safeArea" id="ZdK-ob-yDK"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="vpj-R5-vat">
-                                <rect key="frame" x="-15" y="-58" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <viewLayoutGuide key="safeArea" id="gf5-ys-4r5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="EAY-py-VCv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>

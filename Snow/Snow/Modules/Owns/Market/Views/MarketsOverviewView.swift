@@ -132,7 +132,7 @@ class MarketsOverviewView: UIView {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.left.equalTo(12)
+            make.left.equalTo(0)
         }
         closeBtn.snp.makeConstraints { make in
             make.centerY.equalTo(titleLabel)
@@ -142,7 +142,7 @@ class MarketsOverviewView: UIView {
         }
         hstack.snp.makeConstraints { make in
             make.centerY.equalTo(titleLabel)
-            make.right.equalTo(-12)
+            make.right.equalTo(0)
         }
         hotProgressView.snp.makeConstraints { make in
             make.width.equalTo(4)

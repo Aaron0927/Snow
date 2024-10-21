@@ -6,30 +6,24 @@
 //
 
 import UIKit
-import TGCoreKit
 
-class MarketsHSViewController: UIViewController, TGPageContent {
-    // MARK: - TGPageContent
-    var canScroll: Bool = true
-    var scrollView: UIScrollView? { innerScrollView }
-    // scrollView 滚动回调 -> 在子视图的 scrollViewDidScroll 方法中主动调用
-    var scrollViewDidScroll: ((UIScrollView) -> Void)? = nil
-    
+// 沪深页面
+class MarketsHSViewController: UIViewController {
     // MARK: - 懒加载属性
-    private lazy var innerScrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.delegate = self
-        return scrollView
+    private lazy var pageView: PageView = {
+        let pageView = PageView(parentController: self)
+        pageView.delegate = self
+        pageView.titleView.style = .fixed(80)
+        return pageView
     }()
     
     private lazy var contentView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-//            blockGroupView,
-//            iconGroupView,
-//            overviewView,
+            blockGroupView,
+            iconGroupView,
+            overviewView,
             changesView,
             rankSectionView,
-            rankController.view
         ])
         stackView.axis = .vertical
         return stackView
@@ -64,11 +58,6 @@ class MarketsHSViewController: UIViewController, TGPageContent {
         return view
     }()
     
-    private lazy var rankController: MarketRankViewController = {
-        let controller = MarketRankViewController()
-        return controller
-    }()
-    
     
     // MARK: - 系统回调
     override func viewDidLoad() {
@@ -82,32 +71,29 @@ class MarketsHSViewController: UIViewController, TGPageContent {
 // MARK: - 设置 UI
 extension MarketsHSViewController {
     private func setupUI() {
-        addChild(rankController)
-        view.addSubview(innerScrollView)
-        innerScrollView.addSubview(contentView)
-        rankController.didMove(toParent: self)
-        
-        innerScrollView.snp.makeConstraints { make in
-            make.left.right.top.bottom.equalToSuperview()
-        }
-        contentView.snp.makeConstraints { make in
-            make.left.right.top.bottom.equalToSuperview()
-            make.width.equalToSuperview()
-        }
         rankSectionView.snp.makeConstraints { make in
             make.height.equalTo(40)
         }
-        rankController.view.snp.makeConstraints { make in
-            make.height.equalTo(self.view.snp.height).offset(-40)
+        view.addSubview(pageView)
+        pageView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.equalTo(12)
+            make.right.equalTo(-12)
         }
     }
 }
 
-// MARK: - UIScrollViewDelegate
-extension MarketsHSViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let scrollViewDidScroll = scrollViewDidScroll {
-            scrollViewDidScroll(scrollView)
-        }
+extension MarketsHSViewController: PageDelegate {
+    func pageTitlesForPageView(_ pageView: PageView) -> [String] {
+        return ["涨幅榜", "跌幅榜", "换手率", "成交额", "年初至今"]
+    }
+    
+    func controllersForPageView(_ pageView: PageView) -> [PageContent] {
+        return [MarketRankContentController(), MarketRankContentController(), MarketRankContentController(), MarketRankContentController(), MarketRankContentController()]
+    }
+    
+    // 头部视图
+    func topViewForPageView(_ pageView: PageView) -> UIView? {
+        return contentView
     }
 }

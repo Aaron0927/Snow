@@ -27,7 +27,7 @@ extension BaseTabBarController {
     private func setupChilds() {
         // 添加到Tab Bar
         let homeVC = createChildVC(UIViewController(), title: "首页", image: "icon_tabbar_home_day")
-        let ownsVC = createChildVC(UIViewController(), title: "自选", image: "icon_tabbar_owns_day")
+        let ownsVC = createChildVC(IndividualContainerController(), title: "自选", image: "icon_tabbar_owns_day")
         let fundVC = createChildVC(UIViewController(), title: "基金", image: "icon_tabbar_fund_day")
         let meVC = createChildVC(UIViewController(), title: "我的", image: "icon_tabbar_me_day")
         
@@ -37,8 +37,8 @@ extension BaseTabBarController {
     
     private func createChildVC(_ vc: UIViewController, title: String, image: String) -> UIViewController {
         let nav = BaseNavigationController(rootViewController: vc)
-        nav.tabBarItem.title = title
-        nav.tabBarItem.image = UIImage(named: image)
+        vc.tabBarItem.title = title
+        vc.tabBarItem.image = UIImage(named: image)
         return nav
     }
 }
