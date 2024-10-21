@@ -10,24 +10,26 @@ import TGCoreKit
 
 class MarketsHSViewController: UIViewController, TGPageContent {
     // MARK: - TGPageContent
-    var canScroll: Bool = false
+    var canScroll: Bool = true
     var scrollView: UIScrollView? { innerScrollView }
-    
     // scrollView 滚动回调 -> 在子视图的 scrollViewDidScroll 方法中主动调用
     var scrollViewDidScroll: ((UIScrollView) -> Void)? = nil
     
     // MARK: - 懒加载属性
     private lazy var innerScrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.delegate = self
         return scrollView
     }()
     
     private lazy var contentView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            blockGroupView,
-            iconGroupView,
+//            blockGroupView,
+//            iconGroupView,
 //            overviewView,
             changesView,
+            rankSectionView,
+            rankController.view
         ])
         stackView.axis = .vertical
         return stackView
@@ -53,6 +55,20 @@ class MarketsHSViewController: UIViewController, TGPageContent {
         return view
     }()
     
+    private lazy var rankSectionView: MarketsSectionHeaderView = {
+        let view = MarketsSectionHeaderView()
+        view.titleLabel.text = "沪深京榜单"
+        view.titleLabel.textColor = UIColor(hex: "#333333")
+        view.titleLabel.font = .systemFont(ofSize: 20, weight: .medium)
+        view.closeBtn.isHidden = true
+        return view
+    }()
+    
+    private lazy var rankController: MarketRankViewController = {
+        let controller = MarketRankViewController()
+        return controller
+    }()
+    
     
     // MARK: - 系统回调
     override func viewDidLoad() {
@@ -66,13 +82,10 @@ class MarketsHSViewController: UIViewController, TGPageContent {
 // MARK: - 设置 UI
 extension MarketsHSViewController {
     private func setupUI() {
-//        view.addSubview(blockGroupView)
-//        view.addSubview(iconGroupView)
-//        view.addSubview(overviewView)
-//        view.addSubview(changesView)
-        
+        addChild(rankController)
         view.addSubview(innerScrollView)
         innerScrollView.addSubview(contentView)
+        rankController.didMove(toParent: self)
         
         innerScrollView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
@@ -81,10 +94,20 @@ extension MarketsHSViewController {
             make.left.right.top.bottom.equalToSuperview()
             make.width.equalToSuperview()
         }
-        
-//        contentView.addArrangedSubview(blockGroupView)
-//        contentView.addArrangedSubview(iconGroupView)
-//        contentView.addArrangedSubview(overviewView)
-//        contentView.addArrangedSubview(changesView)
+        rankSectionView.snp.makeConstraints { make in
+            make.height.equalTo(40)
+        }
+        rankController.view.snp.makeConstraints { make in
+            make.height.equalTo(self.view.snp.height).offset(-40)
+        }
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension MarketsHSViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let scrollViewDidScroll = scrollViewDidScroll {
+            scrollViewDidScroll(scrollView)
+        }
     }
 }

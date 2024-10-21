@@ -1,20 +1,25 @@
 //
-//  MarketRankViewController.swift
+//  MarketsAViewController.swift
 //  Snow
 //
-//  Created by kim on 2024/9/27.
+//  Created by kim on 2024/9/3.
 //
 
 import UIKit
 import TGCoreKit
 
-class MarketRankViewController: UIViewController {
+class MarketsAViewController: UIViewController, TGPageContent {
+    // MARK: - TGPageContent
+    var canScroll: Bool = false
+    var scrollViewDidScroll: ((UIScrollView) -> Void)? = nil
+    var scrollView: UIScrollView? = nil
+    
     private lazy var pageView: TGPageView = {
         let pageView = TGPageView(parentController: self)
         pageView.delegate = self
         return pageView
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,17 +31,18 @@ class MarketRankViewController: UIViewController {
 
 }
 
-extension MarketRankViewController: TGPageDelegate {
+extension MarketsAViewController: TGPageDelegate {
     func controllersForPageView(_ pageController: TGPageView) -> [TGPageContent] {
         var controllers = [TGPageContent]()
-        for _ in 0..<5 {
-            let vcd = MarketRankContentController()
+        controllers.append(MarketsHSViewController())
+        for _ in 0..<4 {
+            let vcd = TestDViewController()
             controllers.append(vcd)
         }
         return controllers
     }
     
     func pageTitlesForPageView(_ pageController: TGPageView) -> [String] {
-        return ["涨幅榜", "跌幅榜", "换手率", "成交额", "年初至今"]
+        return ["沪深", "北证", "板块", "科创", "沪深港通"]
     }
 }

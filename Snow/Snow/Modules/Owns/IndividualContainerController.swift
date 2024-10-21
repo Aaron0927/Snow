@@ -22,7 +22,7 @@ class IndividualContainerController: BaseViewController {
     }()
     
     private lazy var pageTitleView: TGPageTitleView = {
-        let titleView = TGPageTitleView(titles: ["机构排行", "股票排行", "期权排行"])
+        let titleView = TGPageTitleView(titles: ["自选", "行情", "组合"])
         titleView.showIndicator = false
         titleView.isScrollEnable = false
         titleView.itemNormalFont = .systemFont(ofSize: 16)
@@ -43,11 +43,6 @@ class IndividualContainerController: BaseViewController {
         super.viewDidLoad()
 
         setupUI()
-    }
-    
-
-    @IBAction func testAction(_ sender: Any) {
-        navigationController?.pushViewController(IndividualStockController(), animated: true)
     }
 }
 

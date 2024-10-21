@@ -24,7 +24,7 @@ class MarketsSectionHeaderView: UIView {
         return imageView
     }()
     
-    private lazy var closeBtn: UIButton = {
+    private(set) lazy var closeBtn: UIButton = {
         let btn = UIButton.init(type: .custom)
         btn.backgroundColor = UIColor.hex("#F7F8FA")
         btn.layer.cornerRadius = 9

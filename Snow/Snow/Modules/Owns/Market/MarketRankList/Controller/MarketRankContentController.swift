@@ -12,19 +12,31 @@ private let kCellID = "MarketRankContentCellID"
 
 class MarketRankContentController: UIViewController, TGPageContent {
     // MARK: - TGPageContent
-    var canScroll: Bool = true
+    var canScroll: Bool = false {
+        didSet {
+            print("what!!")
+            
+        }
+    }
     var scrollViewDidScroll: ((UIScrollView) -> Void)? = nil
     var scrollView: UIScrollView? { tableView }
     
     // MARK: - 懒加载数据
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.separatorStyle = .none
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: kCellID)
+        tableView.register(MarketRankListCell.self, forCellReuseIdentifier: kCellID)
+        tableView.contentOffset = .zero
         return tableView
+    }()
+    
+    private lazy var headerView: MarketRankListHeaderView = {
+        let view = MarketRankListHeaderView()
+        return view
     }()
 
     override func viewDidLoad() {
@@ -45,9 +57,9 @@ extension MarketRankContentController {
         tableView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
         }
+        
+//        tableView.tableHeaderView = MarketRankListHeaderView(frame: CGRectMake(0, 0, kScreenW, 40))
     }
-    
-    // 设置头部视图
 }
 
 // MARK: - UITableView DataSource
@@ -57,8 +69,7 @@ extension MarketRankContentController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kCellID)!
-        cell.backgroundColor = .randomColor
+        let cell = tableView.dequeueReusableCell(withIdentifier: kCellID) as! MarketRankListCell
         return cell
     }
 }

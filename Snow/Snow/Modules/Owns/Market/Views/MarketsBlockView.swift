@@ -72,7 +72,7 @@ extension MarketsBlockView {
         ])
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
-        stackView.spacing = 10
+        stackView.spacing = 5
         
         addSubview(stackView)
         stackView.snp.makeConstraints { make in

@@ -74,7 +74,7 @@ extension MarketsBlockGroupView {
         collectionView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             make.bottom.equalTo(pageControl.snp.top)
-            make.height.equalTo(95)
+            make.height.equalTo(82)
         }
         pageControl.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
